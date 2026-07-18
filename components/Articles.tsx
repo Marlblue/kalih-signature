@@ -1,20 +1,21 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 
 const ARTICLES = [
   {
     title: "5 Tips Kerja Produktif di Coworking Space",
     excerpt: "Maksimalkan fokus Anda dengan pengaturan meja dan suasana yang tepat...",
-    label: "Foto artikel — coworking space",
+    image: STOCK_IMAGES.articleCoworking,
   },
   {
     title: "Mengapa Kalih Signature Menjadi Destinasi Favorit Keluarga?",
     excerpt: "Dari area bermain hingga menu sehat, temukan alasan kenyamanan kami...",
-    label: "Foto artikel — destinasi keluarga",
+    image: STOCK_IMAGES.articleFamily,
   },
   {
     title: "Seni Menyeduh: Rahasia Kopi Artisan Kalih",
     excerpt: "Mengenal lebih dekat proses pemilihan biji kopi terbaik kami...",
-    label: "Foto artikel — kopi artisan",
+    image: STOCK_IMAGES.articleCoffee,
   },
 ];
 
@@ -33,10 +34,13 @@ export default function Articles() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {ARTICLES.map((article) => (
             <div key={article.title} className="group cursor-pointer">
-              <div className="aspect-video rounded-2xl overflow-hidden mb-6">
-                <PlaceholderImage
-                  label={article.label}
-                  className="w-full h-full transition-transform duration-500 group-hover:scale-110"
+              <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
+                <Image
+                  src={article.image.src}
+                  alt={article.image.alt}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <h3 className="font-bold text-xl mb-2 group-hover:text-primary transition-colors">

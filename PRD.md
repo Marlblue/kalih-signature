@@ -53,14 +53,13 @@ Desain sudah di-slicing penuh menjadi komponen React di `components/`, dirangkai
 | 13 | Lokasi & Kontak | `LocationContact.tsx` | ✅ Alamat, jam, dan link Google Maps sudah diisi data asli |
 | 14 | Footer | `Footer.tsx` | ✅ |
 | — | Scroll-reveal (fade-in per section) | `ScrollReveal.tsx` | ✅ Diporting dari vanilla JS ke satu `IntersectionObserver` client component |
-| — | Placeholder foto | `PlaceholderImage.tsx` | ✅ Lihat §6 |
 
-**Tech stack:** Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS v4 (config CSS-first via `@theme` di `app/globals.css`, bukan lagi Tailwind CDN) · TypeScript strict · font `Hanken Grotesk` (display) & `Inter` (body) via `next/font/google` · ikon Material Symbols Outlined via stylesheet Google Fonts.
+**Tech stack:** Next.js 16 (App Router, Turbopack) · React 19 · Tailwind CSS v4 (config CSS-first via `@theme` di `app/globals.css`, bukan lagi Tailwind CDN) · TypeScript strict · font `Hanken Grotesk` (display) & `Inter` (body) via `next/font/google` · ikon Material Symbols Outlined via stylesheet Google Fonts · `next/image` untuk semua foto.
 
 Perubahan struktural dari desain asli:
 - Warna, spacing, font custom dipindah dari inline `tailwind.config` script (CDN) ke `@theme` block Tailwind v4 — sekarang type-safe dan tidak bergantung ke CDN eksternal saat runtime.
-- Semua `<img>` diganti `PlaceholderImage` (lihat §6) karena URL asli bersumber dari `lh3.googleusercontent.com` (link sementara AI Studio, berisiko pecah/berubah kapan saja).
-- Info kontak (nomor WA, alamat, link Maps) dipusatkan di `lib/constants.ts` supaya konsisten di semua section (di desain asli, `href="wa.me/your-number"` tidak sinkron dengan teks nomor yang ditampilkan).
+- Semua `<img>` asli (bersumber dari `lh3.googleusercontent.com`, link sementara AI Studio yang berisiko pecah) sudah diganti gambar nyata — lihat §6 untuk sumber tiap foto.
+- Info kontak (nomor WA, alamat, link Maps) dipusatkan di `lib/constants.ts` supaya konsisten di semua section (di desain asli, `href="wa.me/your-number"` tidak sinkron dengan teks nomor yang ditampilkan). Data ini sudah diisi dengan nomor/alamat/link Maps asli Kalih Signature.
 
 ## 5. Kebutuhan Fungsional (ringkas)
 
@@ -76,7 +75,9 @@ Perubahan struktural dari desain asli:
 
 Ini bagian paling penting supaya situs **berhenti terlihat seperti mockup**:
 
-1. **Foto asli.** Semua gambar saat ini adalah placeholder abu-abu bertuliskan label (mis. "Foto hero — taman rindang Kalih Signature"), lihat `components/PlaceholderImage.tsx`. Perlu foto asli venue (hero, working space, rooftop, kids area, galeri, menu) untuk diupload ke `public/images/` lalu di-swap ke `next/image`.
+1. **Foto asli — sebagian sudah masuk, sebagian masih stok sementara.**
+   - ✅ **Foto asli venue** sudah terpasang untuk Hero, seluruh kartu foto di "Mau ke Kalih untuk apa?" (Makan Bersama Keluarga, Kerja & WFC, Rooftop Experience, Menu Favorit), dan section Family Focus — file ada di `public/images-hero/`, `public/images-intent/`, `public/images-familyfocus/`.
+   - ⚠️ **Masih foto stok Unsplash sementara** (bukan foto Kalih Signature asli) di: Work & Meeting, Menu Showcase (banner "Karya Seni di Setiap Sajian"), 5 foto Galeri "Sudut Kalih", dan 3 foto cover di "Inspirasi & Cerita". Sumbernya terpusat di `lib/stock-images.ts` — tinggal ganti tiap `src` dengan file lokal begitu foto asli venue untuk area-area ini tersedia (working space, meeting room, rooftop, aneka sudut galeri, kopi/menu signature).
 2. **Testimoni.** Tiga testimoni di section "Apa Kata Mereka?" (Andi Pratama, Siti Aminah, Budi Santoso) diambil apa adanya dari file desain. **Wajib dipastikan** ini nama & kutipan nyata dengan izin publikasi — jika tidak, ganti dengan testimoni asli atau hapus section sampai ada data valid. Mempublikasikan testimoni fiktif atas nama orang yang tidak nyata berisiko hukum/etika.
 3. **Jawaban FAQ.** 8 pertanyaan di desain **tidak punya jawaban sama sekali**. Saya menulis draft jawaban di `components/FAQ.tsx` berdasarkan info yang sudah ada di halaman lain (jam operasional, kapasitas meeting room, dll). **Perlu direview tim operasional** — terutama soal kebijakan parkir yang saya tandai belum ada detail pastinya.
 4. **Data kontak.** Nomor WhatsApp, alamat, dan link Google Maps sekarang memakai data yang sudah diisi di `lib/constants.ts` — mohon dikonfirmasi ulang kebenarannya sebelum go-live.
@@ -101,7 +102,7 @@ Ini bagian paling penting supaya situs **berhenti terlihat seperti mockup**:
 
 Diurutkan berdasarkan dampak ke "bukan cuma design":
 
-1. **Ganti seluruh `PlaceholderImage` dengan foto asli** via `next/image` — dependency: §6.1.
+1. **Ganti sisa foto stok Unsplash di `lib/stock-images.ts` dengan foto asli venue** (Work & Meeting, Menu Showcase, Galeri, Articles) — dependency: §6.1.
 2. **Sambungkan form kolaborasi ke backend nyata** — pilihan: API route Next.js yang mengirim email (Resend/Nodemailer), simpan ke Google Sheet, atau integrasi CRM. Perlu kredensial dari klien.
 3. **Tambahkan analytics & event tracking** (GA4/Plausible) untuk klik WhatsApp dan submit form.
 4. **Ganti kartu "Buka Peta" dengan embed Google Maps langsung** (iframe) begitu API key/lokasi final dikonfirmasi.

@@ -1,7 +1,7 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
 
 type IntentCard =
-  | { type: "photo"; title: string; description: string; label: string }
+  | { type: "photo"; title: string; description: string; src: string; alt: string }
   | { type: "icon"; title: string; description: string; icon: string; tone: "solid" | "subtle" };
 
 const CARDS: IntentCard[] = [
@@ -9,13 +9,15 @@ const CARDS: IntentCard[] = [
     type: "photo",
     title: "Makan Bersama Keluarga",
     description: "Momen hangat dengan sajian kuliner terbaik.",
-    label: "Foto — keluarga makan bersama",
+    src: "/images-intent/makan-bersama-keluarga.png",
+    alt: "Keluarga makan bersama di Kalih Signature",
   },
   {
     type: "photo",
     title: "Kerja & WFC",
     description: "WiFi kencang dan suasana tenang untuk fokus.",
-    label: "Foto — area kerja dan WFC",
+    src: "/images-intent/kerja-wfc.png",
+    alt: "Area kerja dan WFC di Kalih Signature",
   },
   {
     type: "icon",
@@ -28,7 +30,8 @@ const CARDS: IntentCard[] = [
     type: "photo",
     title: "Rooftop Experience",
     description: "Sunset dan angin sejuk di ketinggian Tegal.",
-    label: "Foto — rooftop saat senja",
+    src: "/images-intent/rooftop-experience.png",
+    alt: "Rooftop Kalih Signature saat senja",
   },
   {
     type: "icon",
@@ -41,7 +44,8 @@ const CARDS: IntentCard[] = [
     type: "photo",
     title: "Menu Favorit",
     description: "Kopi artisan dan pastry yang memanjakan lidah.",
-    label: "Foto — menu kopi dan pastry",
+    src: "/images-intent/menu-favorit.png",
+    alt: "Menu kopi dan pastry favorit Kalih Signature",
   },
 ];
 
@@ -61,9 +65,12 @@ export default function IntentGrid() {
               key={card.title}
               className="group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer"
             >
-              <PlaceholderImage
-                label={card.label}
-                className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-110"
+              <Image
+                src={card.src}
+                alt={card.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
               <div className="absolute bottom-0 left-0 p-8 text-white">

@@ -1,4 +1,5 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 
 export default function WorkMeeting() {
   return (
@@ -28,10 +29,15 @@ export default function WorkMeeting() {
             </div>
           </div>
           <div className="relative group">
-            <PlaceholderImage
-              label="Foto — working space Kalih Signature"
-              className="rounded-3xl shadow-2xl aspect-[4/3] w-full"
-            />
+            <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl">
+              <Image
+                src={STOCK_IMAGES.workMeeting.src}
+                alt={STOCK_IMAGES.workMeeting.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="absolute -bottom-6 -right-6 bg-white text-primary p-8 rounded-2xl shadow-xl hidden md:block">
               <p className="text-3xl font-bold mb-1">100 Mbps</p>
               <p className="text-xs font-bold uppercase tracking-widest opacity-60">

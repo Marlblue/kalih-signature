@@ -1,14 +1,19 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
 
 export default function FamilyFocus() {
   return (
     <section data-reveal className="py-24 overflow-hidden">
       <div className="px-gutter max-w-container-max mx-auto flex flex-col lg:flex-row items-center gap-16">
         <div className="w-full lg:w-1/2">
-          <PlaceholderImage
-            label="Foto — area keluarga & kids area"
-            className="rounded-3xl shadow-2xl aspect-[4/3] w-full"
-          />
+          <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images-familyfocus/family-focus.png"
+              alt="Area keluarga & kids area di Kalih Signature"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
         <div className="w-full lg:w-1/2">
           <span className="text-primary font-bold tracking-widest text-sm uppercase mb-4 block">

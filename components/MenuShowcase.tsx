@@ -1,11 +1,18 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
 export default function MenuShowcase() {
   return (
     <section id="menu" data-reveal className="relative min-h-screen flex items-center">
       <div className="absolute inset-0 z-0">
-        <PlaceholderImage label="Foto — signature coffee Kalih" className="w-full h-full" />
+        <Image
+          src={STOCK_IMAGES.menuShowcase.src}
+          alt={STOCK_IMAGES.menuShowcase.alt}
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="relative z-10 px-gutter max-w-container-max mx-auto w-full text-white">

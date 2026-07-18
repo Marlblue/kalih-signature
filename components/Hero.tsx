@@ -1,4 +1,4 @@
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
 export default function Hero() {
@@ -9,9 +9,13 @@ export default function Hero() {
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
-        <PlaceholderImage
-          label="Foto hero — taman rindang Kalih Signature"
-          className="w-full h-full"
+        <Image
+          src="/images-hero/hero-image.png"
+          alt="Taman rindang Kalih Signature"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 hero-gradient" />
       </div>

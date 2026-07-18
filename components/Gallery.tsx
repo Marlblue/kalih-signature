@@ -1,17 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import PlaceholderImage from "@/components/PlaceholderImage";
+import Image from "next/image";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 
 const CATEGORIES = ["Semua", "Keluarga", "Arsitektur", "Kuliner"] as const;
 type Category = (typeof CATEGORIES)[number];
 
-const PHOTOS: { label: string; category: Exclude<Category, "Semua">; span: string }[] = [
-  { label: "Foto — sudut taman Kalih", category: "Arsitektur", span: "masonry-item-tall" },
-  { label: "Foto — keluarga bersantai", category: "Keluarga", span: "" },
-  { label: "Foto — rooftop panorama", category: "Arsitektur", span: "masonry-item-wide" },
-  { label: "Foto — sajian signature", category: "Kuliner", span: "" },
-  { label: "Foto — area working space", category: "Arsitektur", span: "masonry-item-tall" },
+const PHOTOS: {
+  src: string;
+  alt: string;
+  category: Exclude<Category, "Semua">;
+  span: string;
+}[] = [
+  {
+    src: STOCK_IMAGES.galleryArsitektur1.src,
+    alt: STOCK_IMAGES.galleryArsitektur1.alt,
+    category: "Arsitektur",
+    span: "masonry-item-tall",
+  },
+  {
+    src: STOCK_IMAGES.galleryKeluarga.src,
+    alt: STOCK_IMAGES.galleryKeluarga.alt,
+    category: "Keluarga",
+    span: "",
+  },
+  {
+    src: STOCK_IMAGES.galleryArsitektur2.src,
+    alt: STOCK_IMAGES.galleryArsitektur2.alt,
+    category: "Arsitektur",
+    span: "masonry-item-wide",
+  },
+  {
+    src: STOCK_IMAGES.galleryKuliner.src,
+    alt: STOCK_IMAGES.galleryKuliner.alt,
+    category: "Kuliner",
+    span: "",
+  },
+  {
+    src: STOCK_IMAGES.galleryArsitektur3.src,
+    alt: STOCK_IMAGES.galleryArsitektur3.alt,
+    category: "Arsitektur",
+    span: "masonry-item-tall",
+  },
 ];
 
 export default function Gallery() {
@@ -52,12 +83,15 @@ export default function Gallery() {
         <div className="masonry-grid">
           {visiblePhotos.map((photo) => (
             <div
-              key={photo.label}
-              className={`${photo.span} rounded-2xl overflow-hidden shadow-lg group`}
+              key={photo.src}
+              className={`relative ${photo.span} rounded-2xl overflow-hidden shadow-lg group`}
             >
-              <PlaceholderImage
-                label={photo.label}
-                className="w-full h-full transition-transform group-hover:scale-110"
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover transition-transform group-hover:scale-110"
               />
             </div>
           ))}
