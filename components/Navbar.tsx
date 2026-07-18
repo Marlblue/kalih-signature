@@ -23,20 +23,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-xl border-b border-white/10 transition-all duration-500 ${
-        isScrolled ? "h-16 shadow-lg shadow-black/10" : "h-20"
-      }`}
+      className={`fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-xl border-b border-white/10 transition-all duration-500 ${isScrolled ? "h-16 shadow-lg shadow-black/10" : "h-20"
+        }`}
     >
       <div className="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
         <a href="#top" className="flex items-center shrink-0">
           <Image
-            src="/logos-navbar/logo-navbar.png"
+            src="/logos-navbar/logo-new.png"
             alt="Kalih Signature"
-            width={64}
-            height={64}
+            width={128}
+            height={160}
             priority
-            className={`transition-all duration-500 ${
-              isScrolled ? "h-11 w-11 md:h-12 md:w-12" : "h-14 w-14 md:h-16 md:w-16"
+            className={`w-auto transition-all duration-500 ${
+              isScrolled ? "h-12 md:h-14" : "h-16 md:h-20"
             }`}
           />
         </a>
