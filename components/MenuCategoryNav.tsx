@@ -1,8 +1,7 @@
 const CATEGORIES = [
-  { href: "#coffee", label: "Kopi Spesial" },
-  { href: "#main", label: "Menu Utama" },
-  { href: "#dessert", label: "Dessert" },
-  { href: "#snacks", label: "Snack" },
+  { href: "#minuman", label: "Minuman" },
+  { href: "#utama", label: "Menu Utama" },
+  { href: "#snack", label: "Snack & Dessert" },
 ];
 
 export default function MenuCategoryNav() {

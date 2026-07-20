@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import MenuHero from "@/components/MenuHero";
 import MenuCategoryNav from "@/components/MenuCategoryNav";
-import MenuCoffeeSection from "@/components/MenuCoffeeSection";
-import MenuMainCourseSection from "@/components/MenuMainCourseSection";
-import MenuDessertSnacksSection from "@/components/MenuDessertSnacksSection";
+import MenuPosterGallery from "@/components/MenuPosterGallery";
 import MenuCallToAction from "@/components/MenuCallToAction";
 
 export const metadata: Metadata = {
@@ -17,9 +15,7 @@ export default function MenuPage() {
     <>
       <MenuHero />
       <MenuCategoryNav />
-      <MenuCoffeeSection />
-      <MenuMainCourseSection />
-      <MenuDessertSnacksSection />
+      <MenuPosterGallery />
       <MenuCallToAction />
     </>
   );

@@ -33,7 +33,7 @@ export default function ArtikelGrid() {
     <section data-reveal className="px-gutter max-w-container-max mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {ARTICLES.map((article) => (
-          <article key={article.title} className="group cursor-pointer">
+          <article key={article.title} className="group cursor-pointer h-full flex flex-col">
             <div className="relative aspect-square rounded-xl overflow-hidden mb-4">
               <Image
                 src={article.image.src}
@@ -49,10 +49,10 @@ export default function ArtikelGrid() {
             <h3 className="font-bold text-lg leading-snug mb-2 group-hover:text-primary transition-colors">
               {article.title}
             </h3>
-            <p className="text-sm text-secondary leading-relaxed mb-3">{article.excerpt}</p>
+            <p className="text-sm text-secondary leading-relaxed mb-3 flex-1">{article.excerpt}</p>
             <a
               href="#"
-              className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-primary"
+              className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-widest text-primary mt-auto"
             >
               Baca Selengkapnya
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>

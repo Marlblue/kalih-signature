@@ -43,11 +43,9 @@ export default function LocationContact() {
                   href={WHATSAPP_RESERVATION_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-primary font-bold group"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
                 >
-                  <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">
-                    call
-                  </span>
+                  <span className="material-symbols-outlined text-[18px]">call</span>
                   {WHATSAPP_NUMBER_DISPLAY} (WhatsApp Reservation)
                 </a>
               </div>

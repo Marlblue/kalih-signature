@@ -52,38 +52,6 @@ export const STOCK_IMAGES = {
     src: unsplash("1509785307050-d4066910ec1e"),
     alt: "Proses menyeduh kopi dengan biji kopi di sekitarnya",
   },
-  menuSalmon: {
-    src: unsplash("1467003909585-2f8a72700288"),
-    alt: "Salmon panggang dengan salsa sayuran di atas piring putih",
-  },
-  menuRisotto: {
-    src: unsplash("1476124369491-e7addf5db371"),
-    alt: "Risotto krim dengan jamur disajikan di piring putih",
-  },
-  menuRibs: {
-    src: unsplash("1544025162-d76694265947"),
-    alt: "Iga sapi panggang di atas talenan kayu dengan saus dan acar",
-  },
-  menuPasta: {
-    src: unsplash("1473093295043-cdd812d0e601"),
-    alt: "Pasta farfalle pesto dengan tomat ceri dan sayuran hijau",
-  },
-  menuDessertBerry: {
-    src: unsplash("1488477181946-6428a0291777"),
-    alt: "Panna cotta dalam toples kecil dengan topping stroberi segar",
-  },
-  menuDessertChocolate: {
-    src: unsplash("1541783245831-57d6fb0926d3"),
-    alt: "Kue cokelat dengan siraman ganache cokelat leleh",
-  },
-  menuFries: {
-    src: unsplash("1585109649139-366815a0d713"),
-    alt: "Kentang goreng renyah dalam mangkuk",
-  },
-  menuBowl: {
-    src: unsplash("1600335895229-6e75511892c8"),
-    alt: "Aneka garden bowl sehat dengan sayuran segar dan avokad",
-  },
   eventCorporate: {
     src: unsplash("1497366811353-6870744d04b2"),
     alt: "Ruang meeting korporat modern dengan meja kayu panjang",
