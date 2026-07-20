@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_ADDRESS_LINE_2,
@@ -6,6 +7,7 @@ import {
   WHATSAPP_NUMBER_DISPLAY,
   WHATSAPP_RESERVATION_URL,
 } from "@/lib/constants";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 
 export default function LocationContact() {
   return (
@@ -52,7 +54,15 @@ export default function LocationContact() {
             </div>
           </div>
           <div className="lg:col-span-8 rounded-3xl overflow-hidden shadow-2xl h-[400px] border-8 border-surface">
-            <div className="w-full h-full bg-slate-200 flex items-center justify-center relative">
+            <div className="relative w-full h-full flex items-center justify-center">
+              <Image
+                src={STOCK_IMAGES.locationMap.src}
+                alt={STOCK_IMAGES.locationMap.alt}
+                fill
+                sizes="(min-width: 1024px) 66vw, 100vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-primary/10" />
               <div className="relative z-10 text-center bg-white/90 p-8 rounded-lg shadow-lg border border-primary/10 backdrop-blur-sm">
                 <span className="material-symbols-outlined text-primary text-5xl mb-4">
                   location_on

@@ -2,17 +2,21 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { href: "#intent", label: "Eksplorasi" },
-  { href: "#fasilitas", label: "Fasilitas" },
-  { href: "#menu", label: "Menu" },
-  { href: "#gallery", label: "Galeri" },
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Menu" },
+  { href: "/event", label: "Event" },
+  { href: "/artikel", label: "Artikel" },
+  { href: "/contact-us", label: "Contact Us" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -27,7 +31,7 @@ export default function Navbar() {
         }`}
     >
       <div className="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
-        <a href="#top" className="flex items-center shrink-0">
+        <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logos-navbar/logo-new.png"
             alt="Kalih Signature"
@@ -38,17 +42,22 @@ export default function Navbar() {
               isScrolled ? "h-12 md:h-14" : "h-16 md:h-20"
             }`}
           />
-        </a>
+        </Link>
         <div className="hidden lg:flex items-center gap-10">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive ? "text-white" : "text-white/80 hover:text-white"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
         <div className="flex items-center gap-6">
           <a

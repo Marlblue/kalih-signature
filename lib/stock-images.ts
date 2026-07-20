@@ -52,4 +52,76 @@ export const STOCK_IMAGES = {
     src: unsplash("1509785307050-d4066910ec1e"),
     alt: "Proses menyeduh kopi dengan biji kopi di sekitarnya",
   },
+  menuSalmon: {
+    src: unsplash("1467003909585-2f8a72700288"),
+    alt: "Salmon panggang dengan salsa sayuran di atas piring putih",
+  },
+  menuRisotto: {
+    src: unsplash("1476124369491-e7addf5db371"),
+    alt: "Risotto krim dengan jamur disajikan di piring putih",
+  },
+  menuRibs: {
+    src: unsplash("1544025162-d76694265947"),
+    alt: "Iga sapi panggang di atas talenan kayu dengan saus dan acar",
+  },
+  menuPasta: {
+    src: unsplash("1473093295043-cdd812d0e601"),
+    alt: "Pasta farfalle pesto dengan tomat ceri dan sayuran hijau",
+  },
+  menuDessertBerry: {
+    src: unsplash("1488477181946-6428a0291777"),
+    alt: "Panna cotta dalam toples kecil dengan topping stroberi segar",
+  },
+  menuDessertChocolate: {
+    src: unsplash("1541783245831-57d6fb0926d3"),
+    alt: "Kue cokelat dengan siraman ganache cokelat leleh",
+  },
+  menuFries: {
+    src: unsplash("1585109649139-366815a0d713"),
+    alt: "Kentang goreng renyah dalam mangkuk",
+  },
+  menuBowl: {
+    src: unsplash("1600335895229-6e75511892c8"),
+    alt: "Aneka garden bowl sehat dengan sayuran segar dan avokad",
+  },
+  eventCorporate: {
+    src: unsplash("1497366811353-6870744d04b2"),
+    alt: "Ruang meeting korporat modern dengan meja kayu panjang",
+  },
+  eventBirthday: {
+    src: unsplash("1519671482749-fd09be7ccebf"),
+    alt: "Tamu bersulang dengan gelas anggur saat perayaan",
+  },
+  eventEngagement: {
+    src: unsplash("1519741497674-611481863552"),
+    alt: "Pasangan memegang buket bunga saat golden hour",
+  },
+  eventWorkshop: {
+    src: unsplash("1513364776144-60967b0f800f"),
+    alt: "Kuas lukis dengan cat warna-warni di atas kanvas",
+  },
+  eventYoga: {
+    src: unsplash("1544367567-0f2fcb009e0b"),
+    alt: "Siluet orang yoga di rooftop saat matahari terbenam",
+  },
+  eventGalleryWedding: {
+    src: unsplash("1519167758481-83f550bb49b3"),
+    alt: "Ballroom pernikahan dengan meja bundar dan dekorasi mewah",
+  },
+  eventGalleryLaunch: {
+    src: unsplash("1540575467063-178a50c2df87"),
+    alt: "Audiens menghadiri acara peluncuran produk di ruang gelap",
+  },
+  eventGalleryCommunity: {
+    src: unsplash("1517457373958-b7bdd4587205"),
+    alt: "Kerumunan orang menikmati pesta komunitas outdoor dengan lampu string",
+  },
+  articleEventPlanning: {
+    src: unsplash("1478146059778-26028b07395a"),
+    alt: "Meja acara ditata elegan dengan bunga, lilin, dan dessert",
+  },
+  locationMap: {
+    src: unsplash("1524661135-423995f22d0b", 1600),
+    alt: "Ilustrasi peta dunia bergaya vintage",
+  },
 } satisfies Record<string, StockImage>;

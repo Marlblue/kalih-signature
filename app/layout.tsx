@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import "./globals.css";
 
@@ -35,7 +37,9 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-background text-on-surface font-body antialiased selection:bg-primary selection:text-white">
-        {children}
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
         <ScrollReveal />
       </body>
     </html>

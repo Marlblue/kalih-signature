@@ -1,21 +1,23 @@
-const NAV_LINKS = [
-  { href: "#intent", label: "Eksplorasi" },
-  { href: "#fasilitas", label: "Fasilitas" },
-  { href: "#menu", label: "Menu Utama" },
-  { href: "#gallery", label: "Galeri Foto" },
-];
+import Link from "next/link";
+import {
+  BUSINESS_ADDRESS,
+  BUSINESS_HOURS,
+  GOOGLE_MAPS_URL,
+  WHATSAPP_NUMBER_DISPLAY,
+  WHATSAPP_RESERVATION_URL,
+} from "@/lib/constants";
 
-const LEGAL_LINKS = [
-  { href: "#", label: "Kebijakan Privasi" },
-  { href: "#", label: "Syarat & Ketentuan" },
-  { href: "#", label: "Bergabung Bersama Kami" },
-  { href: "#", label: "Pusat Bantuan" },
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/menu", label: "Menu" },
+  { href: "/event", label: "Event" },
+  { href: "/artikel", label: "Artikel" },
+  { href: "/contact-us", label: "Contact Us" },
 ];
 
 const SOCIAL_LINKS = [
-  { href: "#", icon: "share", label: "Bagikan" },
-  { href: "#", icon: "mail", label: "Email" },
-  { href: "#", icon: "public", label: "Website" },
+  { href: WHATSAPP_RESERVATION_URL, icon: "chat", label: "WhatsApp" },
+  { href: GOOGLE_MAPS_URL, icon: "location_on", label: "Google Maps" },
 ];
 
 export default function Footer() {
@@ -36,24 +38,29 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-6 text-white">Navigasi</h4>
             <ul className="space-y-4 text-white/70 text-sm">
               {NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors">
+                <li key={link.href}>
+                  <Link href={link.href} className="hover:text-white transition-colors">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Legal &amp; Karier</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Kontak</h4>
             <ul className="space-y-4 text-white/70 text-sm">
-              {LEGAL_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="hover:text-white transition-colors">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>{BUSINESS_ADDRESS}</li>
+              <li>{BUSINESS_HOURS}</li>
+              <li>
+                <a
+                  href={WHATSAPP_RESERVATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {WHATSAPP_NUMBER_DISPLAY} (WhatsApp)
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -66,6 +73,8 @@ export default function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.label}
                 className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all"
               >
