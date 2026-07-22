@@ -22,7 +22,7 @@ const CARDS: IntentCard[] = [
   },
   {
     type: "photo",
-    title: "Meeting & Workshop",
+    title: "Corporate Meeting & Workshop",
     description: "Ruang profesional dengan fasilitas lengkap.",
     src: "/images-intent/meeting.png",
     alt: "Meeting room Kalih Signature",
