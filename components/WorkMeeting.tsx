@@ -31,8 +31,8 @@ export default function WorkMeeting() {
           <div className="relative group">
             <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src={STOCK_IMAGES.workMeeting.src}
-                alt={STOCK_IMAGES.workMeeting.alt}
+                src="/images-workmeeting/pusat-produktivitas.png"
+                alt=""
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"

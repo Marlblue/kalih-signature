@@ -10,8 +10,8 @@ export default function Hero() {
     >
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images-hero/hero-image.png"
-          alt="Taman rindang Kalih Signature"
+          src="/images-hero/hero.png"
+          alt="Kalih Signature"
           fill
           priority
           sizes="100vw"

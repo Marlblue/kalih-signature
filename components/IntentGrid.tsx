@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { STOCK_IMAGES } from "@/lib/stock-images";
 
 type IntentCard =
   | { type: "photo"; title: string; description: string; src: string; alt: string }
@@ -9,42 +10,42 @@ const CARDS: IntentCard[] = [
     type: "photo",
     title: "Makan Bersama Keluarga",
     description: "Momen hangat dengan sajian kuliner terbaik.",
-    src: "/images-intent/makan-bersama-keluarga.png",
+    src: "/images-intent/makan-bersama.png",
     alt: "Keluarga makan bersama di Kalih Signature",
   },
   {
     type: "photo",
     title: "Kerja & WFC",
     description: "WiFi kencang dan suasana tenang untuk fokus.",
-    src: "/images-intent/kerja-wfc.png",
+    src: "/images-intent/wfc.png",
     alt: "Area kerja dan WFC di Kalih Signature",
   },
   {
-    type: "icon",
+    type: "photo",
     title: "Meeting & Workshop",
     description: "Ruang profesional dengan fasilitas lengkap.",
-    icon: "corporate_fare",
-    tone: "subtle",
+    src: "/images-intent/meeting.png",
+    alt: "Meeting room Kalih Signature",
   },
   {
     type: "photo",
     title: "Rooftop Experience",
     description: "Sunset dan angin sejuk di ketinggian Tegal.",
-    src: "/images-intent/rooftop-experience.png",
+    src: "/images-intent/rooftop.png",
     alt: "Rooftop Kalih Signature saat senja",
   },
   {
-    type: "icon",
+    type: "photo",
     title: "Event & Gathering",
     description: "Rayakan ulang tahun atau tunangan dengan berkelas.",
-    icon: "celebration",
-    tone: "solid",
+    src: "/images-intent/event.png",
+    alt: "Event & Gathering Kalih Signature"
   },
   {
     type: "photo",
     title: "Menu Favorit",
     description: "Kopi artisan dan pastry yang memanjakan lidah.",
-    src: "/images-intent/menu-favorit.png",
+    src: "/images-intent/menu-fav.png",
     alt: "Menu kopi dan pastry favorit Kalih Signature",
   },
 ];
@@ -83,9 +84,8 @@ export default function IntentGrid() {
           ) : (
             <div
               key={card.title}
-              className={`group relative overflow-hidden rounded-2xl aspect-[4/5] flex items-center justify-center p-8 text-center cursor-pointer border border-primary/5 hover:bg-primary hover:text-white transition-colors duration-500 ${
-                card.tone === "solid" ? "bg-primary/5" : "bg-primary/10"
-              }`}
+              className={`group relative overflow-hidden rounded-2xl aspect-[4/5] flex items-center justify-center p-8 text-center cursor-pointer border border-primary/5 hover:bg-primary hover:text-white transition-colors duration-500 ${card.tone === "solid" ? "bg-primary/5" : "bg-primary/10"
+                }`}
             >
               <div>
                 <span className="material-symbols-outlined text-5xl mb-6">{card.icon}</span>

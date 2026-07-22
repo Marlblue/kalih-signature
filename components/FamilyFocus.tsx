@@ -7,7 +7,7 @@ export default function FamilyFocus() {
         <div className="w-full lg:w-1/2">
           <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl">
             <Image
-              src="/images-familyfocus/family.jpeg"
+              src="/images-familyfocus/rindang.png"
               alt="Area keluarga & kids area di Kalih Signature"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

@@ -13,37 +13,37 @@ const PHOTOS: {
   category: Exclude<Category, "Semua">;
   span: string;
 }[] = [
-  {
-    src: STOCK_IMAGES.galleryArsitektur1.src,
-    alt: STOCK_IMAGES.galleryArsitektur1.alt,
-    category: "Arsitektur",
-    span: "masonry-item-tall",
-  },
-  {
-    src: STOCK_IMAGES.galleryKeluarga.src,
-    alt: STOCK_IMAGES.galleryKeluarga.alt,
-    category: "Keluarga",
-    span: "",
-  },
-  {
-    src: STOCK_IMAGES.galleryArsitektur2.src,
-    alt: STOCK_IMAGES.galleryArsitektur2.alt,
-    category: "Arsitektur",
-    span: "masonry-item-wide",
-  },
-  {
-    src: STOCK_IMAGES.galleryKuliner.src,
-    alt: STOCK_IMAGES.galleryKuliner.alt,
-    category: "Kuliner",
-    span: "",
-  },
-  {
-    src: STOCK_IMAGES.galleryArsitektur3.src,
-    alt: STOCK_IMAGES.galleryArsitektur3.alt,
-    category: "Arsitektur",
-    span: "masonry-item-tall",
-  },
-];
+    {
+      src: "/images-gallery/1.png",
+      alt: "",
+      category: "Arsitektur",
+      span: "masonry-item-tall",
+    },
+    {
+      src: "/images-gallery/2.png",
+      alt: "",
+      category: "Keluarga",
+      span: "",
+    },
+    {
+      src: "/images-gallery/3.png",
+      alt: "",
+      category: "Arsitektur",
+      span: "masonry-item-wide",
+    },
+    {
+      src: "/images-gallery/4.png",
+      alt: "",
+      category: "Kuliner",
+      span: "",
+    },
+    {
+      src: "/images-gallery/5.png",
+      alt: "",
+      category: "Arsitektur",
+      span: "masonry-item-tall",
+    },
+  ];
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState<Category>("Semua");
@@ -69,11 +69,10 @@ export default function Gallery() {
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`text-sm font-bold pb-1 transition-colors ${
-                  activeCategory === category
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-secondary hover:text-primary"
-                }`}
+                className={`text-sm font-bold pb-1 transition-colors ${activeCategory === category
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-secondary hover:text-primary"
+                  }`}
               >
                 {category}
               </button>
