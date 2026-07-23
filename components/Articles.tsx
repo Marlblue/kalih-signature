@@ -1,23 +1,16 @@
 import Image from "next/image";
-import { STOCK_IMAGES } from "@/lib/stock-images";
+import Link from "next/link";
+import { ARTICLES } from "@/lib/articles";
 
-const ARTICLES = [
-  {
-    title: "5 Tips Kerja Produktif di Coworking Space",
-    excerpt: "Maksimalkan fokus Anda dengan pengaturan meja dan suasana yang tepat...",
-    image: STOCK_IMAGES.articleCoworking,
-  },
-  {
-    title: "Mengapa Kalih Signature Menjadi Destinasi Favorit Keluarga?",
-    excerpt: "Dari area bermain hingga menu sehat, temukan alasan kenyamanan kami...",
-    image: STOCK_IMAGES.articleFamily,
-  },
-  {
-    title: "Seni Menyeduh: Rahasia Kopi Artisan Kalih",
-    excerpt: "Mengenal lebih dekat proses pemilihan biji kopi terbaik kami...",
-    image: STOCK_IMAGES.articleCoffee,
-  },
+const HOME_ARTICLE_SLUGS = [
+  "deep-work-di-ruang-terbuka",
+  "akhir-pekan-bersama-keluarga",
+  "seni-manual-brew",
 ];
+
+const FEATURED_ARTICLES = HOME_ARTICLE_SLUGS.map((slug) =>
+  ARTICLES.find((article) => article.slug === slug)
+).filter((article): article is (typeof ARTICLES)[number] => Boolean(article));
 
 export default function Articles() {
   return (
@@ -32,8 +25,8 @@ export default function Articles() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {ARTICLES.map((article) => (
-            <div key={article.title} className="group cursor-pointer">
+          {FEATURED_ARTICLES.map((article) => (
+            <Link key={article.slug} href={`/artikel/${article.slug}`} className="group block">
               <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
                 <Image
                   src={article.image.src}
@@ -47,7 +40,7 @@ export default function Articles() {
                 {article.title}
               </h3>
               <p className="text-sm text-secondary leading-relaxed">{article.excerpt}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

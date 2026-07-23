@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { STOCK_IMAGES } from "@/lib/stock-images";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
@@ -28,9 +29,12 @@ export default function MenuShowcase() {
             Kalih Signature adalah perpaduan teknik kuliner modern dan rasa autentik.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
-            <button className="bg-white text-primary px-10 py-4 rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all">
+            <Link
+              href="/menu"
+              className="bg-white text-primary px-10 py-4 rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all text-center"
+            >
               Lihat Menu Lengkap
-            </button>
+            </Link>
             <a
               href={WHATSAPP_RESERVATION_URL}
               target="_blank"

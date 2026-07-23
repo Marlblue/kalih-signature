@@ -13,24 +13,34 @@ const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] 
     title: "Minuman",
     posters: [
       {
-        src: "/poster-menu/artisantea-coffeemilk.png",
+        src: "/menu-kalih/menu-kalih-1.webp",
+        alt: "Menu Espresso Based dan Manual Brew Kalih Signature",
+        label: "Espresso Based & Manual Brew",
+      },
+      {
+        src: "/menu-kalih/menu-kalih-2.webp",
         alt: "Menu Artisan Tea dan Coffee Milk Kalih Signature",
         label: "Artisan Tea & Coffee Milk",
       },
       {
-        src: "/poster-menu/creamymilky.png",
-        alt: "Menu Creamy Milky Kalih Signature",
-        label: "Creamy Milky",
-      },
-      {
-        src: "/poster-menu/noncoffee.png",
+        src: "/menu-kalih/menu-kalih-3.webp",
         alt: "Menu Non Coffee dan Mocktail Kalih Signature",
         label: "Non Coffee & Mocktail",
       },
       {
-        src: "/poster-menu/smoothies.png",
+        src: "/menu-kalih/menu-kalih-4.webp",
+        alt: "Menu Creamy Milky Kalih Signature",
+        label: "Creamy Milky",
+      },
+      {
+        src: "/menu-kalih/menu-kalih-5.webp",
         alt: "Menu Smoothies Kalih Signature",
         label: "Smoothies",
+      },
+      {
+        src: "/menu-kalih/menu-kalih-6.webp",
+        alt: "Menu Matcha Series Kalih Signature",
+        label: "Matcha Series",
       },
     ],
   },
@@ -40,22 +50,22 @@ const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] 
     title: "Menu Utama",
     posters: [
       {
-        src: "/poster-menu/ricemeals.png",
+        src: "/menu-kalih/menu-kalih-9.webp",
         alt: "Menu Rice Meals Kalih Signature",
         label: "Rice Meals",
       },
       {
-        src: "/poster-menu/ricemeals2.png",
-        alt: "Menu Rice Bowl dan Bento Kalih Signature",
-        label: "Rice Bowl & Bento",
+        src: "/menu-kalih/menu-kalih-10.webp",
+        alt: "Menu Rice Meals Premium Kalih Signature",
+        label: "Rice Meals Premium",
       },
       {
-        src: "/poster-menu/noodlesandsoup.png",
+        src: "/menu-kalih/menu-kalih-11.webp",
         alt: "Menu Noodles dan Soup Kalih Signature",
         label: "Noodles & Soup",
       },
       {
-        src: "/poster-menu/westerndishes.png",
+        src: "/menu-kalih/menu-kalih-12.webp",
         alt: "Menu Western Dishes Kalih Signature",
         label: "Western Dishes",
       },
@@ -67,12 +77,12 @@ const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] 
     title: "Snack & Dessert",
     posters: [
       {
-        src: "/poster-menu/savorysnack.png",
+        src: "/menu-kalih/menu-kalih-8.webp",
         alt: "Menu Savory Snack Kalih Signature",
         label: "Savory Snack",
       },
       {
-        src: "/poster-menu/sweetsnack.png",
+        src: "/menu-kalih/menu-kalih-7.webp",
         alt: "Menu Sweet Snack Kalih Signature",
         label: "Sweet Snack",
       },
@@ -104,14 +114,14 @@ export default function MenuPosterGallery() {
                 key={poster.src}
                 type="button"
                 onClick={() => setActive(poster)}
-                className="group relative aspect-[210/297] rounded-2xl overflow-hidden shadow-xl shadow-black/10 text-left"
+                className="group relative aspect-[210/297] rounded-2xl overflow-hidden shadow-xl shadow-black/10 text-left bg-white"
               >
                 <Image
                   src={poster.src}
                   alt={poster.alt}
                   fill
                   sizes="(min-width: 640px) 45vw, 90vw"
-                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="object-contain transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-4 flex items-center justify-between">
                   <span className="text-white font-bold text-sm">{poster.label}</span>

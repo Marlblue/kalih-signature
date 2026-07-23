@@ -6,7 +6,7 @@ const CATEGORIES = [
 
 export default function MenuCategoryNav() {
   return (
-    <nav className="py-4 border-b border-black/5 bg-white sticky top-16 sm:top-20 z-40">
+    <nav className="py-4 border-b border-black/5 bg-white">
       <div className="px-gutter max-w-container-max mx-auto overflow-x-auto">
         <div className="flex gap-8 items-center justify-center min-w-max">
           {CATEGORIES.map((category) => (

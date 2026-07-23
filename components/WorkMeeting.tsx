@@ -1,7 +1,132 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { STOCK_IMAGES } from "@/lib/stock-images";
+
+/* ── Animated counter hook (0 → target) ── */
+function useCounter(target: number, duration: number, start: boolean) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+
+    let startTime: number | null = null;
+    let raf: number;
+
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // ease-out curve
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * target));
+      if (progress < 1) {
+        raf = requestAnimationFrame(step);
+      }
+    };
+
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, duration, start]);
+
+  return count;
+}
+
+/* ── WiFi signal icon: bars light up sequentially ── */
+function WifiSignalIcon({ animate }: { animate: boolean }) {
+  const [activeBars, setActiveBars] = useState(0);
+  const MAX_BARS = 4;
+
+  useEffect(() => {
+    if (!animate) return;
+
+    let current = 0;
+    const interval = setInterval(() => {
+      current += 1;
+      setActiveBars(current);
+      if (current >= MAX_BARS) clearInterval(interval);
+    }, 350);
+
+    return () => clearInterval(interval);
+  }, [animate]);
+
+  // SVG wifi arcs from small to large
+  const bars = [
+    // Dot (center)
+    <circle
+      key="dot"
+      cx="12"
+      cy="20"
+      r="1.5"
+      className={`transition-opacity duration-300 ${activeBars >= 1 ? "opacity-100" : "opacity-20"}`}
+      fill="currentColor"
+    />,
+    // Arc 1 (smallest)
+    <path
+      key="arc1"
+      d="M8.5 16.5a5 5 0 0 1 7 0"
+      strokeWidth="2"
+      strokeLinecap="round"
+      fill="none"
+      stroke="currentColor"
+      className={`transition-opacity duration-300 ${activeBars >= 2 ? "opacity-100" : "opacity-20"}`}
+    />,
+    // Arc 2
+    <path
+      key="arc2"
+      d="M5.5 13.5a9.5 9.5 0 0 1 13 0"
+      strokeWidth="2"
+      strokeLinecap="round"
+      fill="none"
+      stroke="currentColor"
+      className={`transition-opacity duration-300 ${activeBars >= 3 ? "opacity-100" : "opacity-20"}`}
+    />,
+    // Arc 3 (largest)
+    <path
+      key="arc3"
+      d="M2.5 10.5a14 14 0 0 1 19 0"
+      strokeWidth="2"
+      strokeLinecap="round"
+      fill="none"
+      stroke="currentColor"
+      className={`transition-opacity duration-300 ${activeBars >= 4 ? "opacity-100" : "opacity-20"}`}
+    />,
+  ];
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="w-8 h-8 text-primary"
+      aria-hidden="true"
+    >
+      {bars}
+    </svg>
+  );
+}
 
 export default function WorkMeeting() {
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = badgeRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const count = useCounter(100, 1800, isVisible);
+
   return (
     <section data-reveal className="bg-primary text-white py-24">
       <div className="px-gutter max-w-container-max mx-auto">
@@ -31,15 +156,19 @@ export default function WorkMeeting() {
           <div className="relative group">
             <div className="relative aspect-[4/3] w-full rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/images-workmeeting/pusat-produktivitas.png"
+                src="/images-workmeeting/pusat-produktivitas.webp"
                 alt=""
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-white text-primary p-8 rounded-2xl shadow-xl hidden md:block">
-              <p className="text-3xl font-bold mb-1">100 Mbps</p>
+            <div
+              ref={badgeRef}
+              className="absolute -bottom-6 -right-6 bg-white text-primary p-8 rounded-2xl shadow-xl hidden md:flex flex-col items-center gap-2"
+            >
+              <WifiSignalIcon animate={isVisible} />
+              <p className="text-3xl font-bold mb-0 tabular-nums">{count} Mbps</p>
               <p className="text-xs font-bold uppercase tracking-widest opacity-60">
                 Dedicated Connection
               </p>

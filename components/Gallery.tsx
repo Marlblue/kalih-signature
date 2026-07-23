@@ -14,43 +14,43 @@ const PHOTOS: {
   span: string;
 }[] = [
     {
-      src: "/images-gallery/food1.png",
+      src: "/images-gallery/food1.webp",
       alt: "",
       category: "Food",
       span: "masonry-item-tall",
     },
     {
-      src: "/images-gallery/food2.png",
+      src: "/images-gallery/food2.webp",
       alt: "",
       category: "Food",
       span: "",
     },
     {
-      src: "/images-gallery/ambience1.png",
+      src: "/images-gallery/ambience1.webp",
       alt: "",
       category: "Ambience",
       span: "masonry-item-wide",
     },
     {
-      src: "/images-gallery/ambience2.png",
+      src: "/images-gallery/ambience2.webp",
       alt: "",
       category: "Ambience",
       span: ""
     },
     {
-      src: "/images-gallery/ambience3.png",
+      src: "/images-gallery/ambience3.webp",
       alt: "",
       category: "Ambience",
       span: ""
     },
     {
-      src: "/images-gallery/coffee1.png",
+      src: "/images-gallery/coffee1.webp",
       alt: "",
       category: "Coffee",
       span: "",
     },
     {
-      src: "/images-gallery/event1.png",
+      src: "/images-gallery/event1.webp",
       alt: "",
       category: "Event",
       span: "masonry-item-tall",

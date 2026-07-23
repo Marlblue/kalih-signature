@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { WHATSAPP_NUMBER_INTL } from "@/lib/constants";
 
 const INTERESTS = [
   "Corporate Event",
@@ -28,16 +29,33 @@ const CATEGORIES = [
   },
 ];
 
-/**
- * Submit is a stub: it only confirms the form was filled in correctly.
- * No data is sent anywhere yet — wiring this to an API route / CRM / email
- * is a follow-up task (see PRD.md, "Backlog").
- */
 export default function CollaborationForm() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const interest = formData.get("interest") as string;
+    const message = formData.get("message") as string;
+
+    const waText = [
+      `Halo Kalih Signature! 👋`,
+      ``,
+      `Saya ingin mengajukan kolaborasi:`,
+      ``,
+      `*Nama / Instansi:* ${name}`,
+      `*Email:* ${email}`,
+      `*Minat Kolaborasi:* ${interest}`,
+      ``,
+      `*Detail:*`,
+      message,
+    ].join("\n");
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${encodeURIComponent(waText)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
     setStatus("submitted");
   };
 

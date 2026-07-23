@@ -53,6 +53,19 @@ body {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.35) 100%);
 }
 
+/* Typewriter blinking cursor */
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  font-weight: 100;
+  animation: blink 1.06s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .masonry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
