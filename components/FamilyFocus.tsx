@@ -17,29 +17,27 @@ export default function FamilyFocus() {
         </div>
         <div className="w-full lg:w-1/2">
           <span className="text-primary font-bold tracking-widest text-sm uppercase mb-4 block">
-            Family Friendly
+            OUTDOOR EXPERIENCE
           </span>
           <h2 className="font-display text-4xl font-bold text-primary mb-6 leading-tight">
-            Waktu Berkualitas di Bawah Rindangnya Pepohonan
+            Nikmati Suasana Asri di Tengah Kota Tegal
           </h2>
           <p className="text-secondary text-lg mb-8 leading-relaxed">
-            Kami memahami pentingnya waktu bersama keluarga. Dengan area outdoor yang luas, udara
-            segar dari pepohonan besar, dan fasilitas kids area khusus, Kalih Signature adalah
-            destinasi paling aman dan nyaman untuk si kecil.
+            Kalih Signature menghadirkan area outdoor yang rindang dengan pepohonan hijau, udara yang sejuk, dan suasana yang nyaman untuk bersantai, berkumpul, maupun menikmati waktu bersama keluarga.
           </p>
           <div className="grid grid-cols-2 gap-6">
             <div className="flex items-start gap-4">
               <span className="material-symbols-outlined text-primary">check_circle</span>
               <div>
-                <p className="font-bold">Playground</p>
-                <p className="text-sm text-secondary">Area bermain edukatif.</p>
+                <p className="font-bold">Area Outdoor Luas</p>
+                <p className="text-sm text-secondary">Rindang dan nyaman sepanjang hari.</p>
               </div>
             </div>
             <div className="flex items-start gap-4">
               <span className="material-symbols-outlined text-primary">check_circle</span>
               <div>
-                <p className="font-bold">Menu Anak</p>
-                <p className="text-sm text-secondary">Sajian sehat &amp; lezat.</p>
+                <p className="font-bold">Kids Area</p>
+                <p className="text-sm text-secondary">Area bermain yang aman untuk si kecil.</p>
               </div>
             </div>
           </div>

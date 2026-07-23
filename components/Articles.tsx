@@ -18,7 +18,7 @@ export default function Articles() {
       <div className="px-gutter max-w-container-max mx-auto">
         <div className="mb-12">
           <h2 className="font-display text-4xl font-bold text-primary mb-4 tracking-tight">
-            Inspirasi &amp; Cerita dari Kalih
+            Artikel
           </h2>
           <p className="text-secondary">
             Temukan tips dan cerita menarik seputar gaya hidup dan produktivitas.

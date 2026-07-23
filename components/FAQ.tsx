@@ -31,12 +31,12 @@ const FAQ_ITEMS = [
   {
     question: "Bagaimana fasilitas parkir di Kalih Signature?",
     answer:
-      "Tersedia area parkir untuk mobil dan motor di lokasi. (Detail kapasitas & keamanan parkir menyusul dari tim operasional.)",
+      "Kalih Signature menyediakan area parkir yang luas untuk mobil dan motor, sehingga Anda dapat berkunjung dengan nyaman, baik datang sendiri maupun bersama keluarga, komunitas, atau rombongan acara."
   },
   {
-    question: "Berapa kapasitas maksimal Meeting Room?",
+    question: "Apakah Kalih Signature bisa untuk mengadakan acara pribadi atau perusahaan? ",
     answer:
-      "Corporate Meeting Room kami menampung hingga 15 orang, dilengkapi Smart TV/projector dan opsi layanan catering khusus.",
+      "Tentu. Kalih Signature melayani berbagai kebutuhan acara seperti meeting perusahaan, workshop, gathering komunitas, engagement, intimate wedding, bridal shower, arisan, hingga berbagai momen spesial lainnya. Tim kami siap membantu menyesuaikan konsep acara sesuai kebutuhan."
   },
   {
     question: "Jam berapa Rooftop mulai beroperasi?",
@@ -81,9 +81,8 @@ export default function FAQ() {
                 >
                   <span>{item.question}</span>
                   <span
-                    className={`material-symbols-outlined transition-transform duration-300 ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
+                    className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                      }`}
                   >
                     expand_more
                   </span>

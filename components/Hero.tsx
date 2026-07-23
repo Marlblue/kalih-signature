@@ -4,9 +4,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
-const LINES = ["Satu Tempat.", "Banyak Alasan untuk Datang."];
-const TYPING_SPEED = 60; // ms per character
-const PAUSE_BETWEEN_LINES = 600; // ms pause after finishing a line
 
 function useTypewriter(lines: string[], speed: number, pause: number) {
   const [lineIndex, setLineIndex] = useState(0);
@@ -51,9 +48,9 @@ function useTypewriter(lines: string[], speed: number, pause: number) {
 
 export default function Hero() {
   const { displayedLines, done } = useTypewriter(
-    LINES,
-    TYPING_SPEED,
-    PAUSE_BETWEEN_LINES
+    ["Selalu Ada Alasan ke Kalih Signature."],
+    50,
+    600
   );
 
   return (
@@ -88,13 +85,11 @@ export default function Hero() {
           ))}
           {/* Invisible full text for SEO / screen readers */}
           <span className="sr-only">
-            Satu Tempat. Banyak Alasan untuk Datang.
+            Selalu Ada Alasan ke Kalih Signature.
           </span>
         </h1>
         <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed font-light">
-          Coffee berkualitas, makanan favorit keluarga, working space nyaman, meeting room
-          profesional, rooftop, area outdoor rindang, kids area, dan berbagai event dalam satu
-          destinasi.
+          Nikmati coffee berkualitas, menu favorit keluarga, working space nyaman, meeting room profesional, rooftop, area outdoor rindang, kids area, dan venue event di café  favorit di Tegal.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mb-10 sm:mb-16">
           <a

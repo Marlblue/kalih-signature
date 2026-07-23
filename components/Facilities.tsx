@@ -1,23 +1,23 @@
 const FACILITIES = [
   {
     icon: "park",
-    title: "Rindang & Asri",
-    description: "Pepohonan besar yang memberikan udara sejuk alami.",
+    title: "Area Outdoor Asri",
+    description: "Area outdoor yang rindang dan sejuk untuk bersantai bersama keluarga atau teman.",
   },
   {
     icon: "child_care",
-    title: "Kids Area",
-    description: "Area bermain aman agar orang tua bisa tenang bersantai.",
+    title: "Kids Friendly",
+    description: "Area bermain yang aman dan nyaman untuk menemani waktu bersama si kecil.",
   },
   {
-    icon: "laptop_mac",
-    title: "Working Space",
-    description: "Meja ergonomis dengan stop kontak di setiap sudut.",
+    icon: "wifi",
+    title: "WiFi Cepat",
+    description: "WiFi cepat dan stabil untuk WFC, belajar, meeting online, hingga menyelesaikan pekerjaan.",
   },
   {
-    icon: "meeting_room",
-    title: "Meeting Room",
-    description: "Privasi total untuk diskusi bisnis yang produktif.",
+    icon: "local_parking",
+    title: "Parkir Luas",
+    description: "Area parkir yang luas dan mudah diakses untuk mobil, motor, maupun rombongan.",
   },
 ];
 
@@ -27,10 +27,10 @@ export default function Facilities() {
       <div className="px-gutter max-w-container-max mx-auto">
         <div className="text-center mb-20">
           <h2 className="font-display text-4xl font-bold text-primary mb-6 tracking-tight">
-            Kenyamanan Tanpa Kompromi
+            Mengapa Memilih Kalih Signature?
           </h2>
           <p className="text-secondary max-w-2xl mx-auto">
-            Dirancang untuk memenuhi setiap kebutuhan gaya hidup modern Anda di Tegal.
+            Nikmati suasana café di Tegal yang nyaman untuk keluarga, bekerja, meeting, hingga berbagai acara.
           </p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">

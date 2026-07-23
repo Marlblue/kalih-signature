@@ -132,23 +132,22 @@ export default function WorkMeeting() {
       <div className="px-gutter max-w-container-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <div>
-            <h2 className="font-display text-4xl font-bold mb-8">Pusat Produktivitas Tegal</h2>
+            <h2 className="font-display text-4xl font-bold mb-8">Kolaborasi Bersama Kalih Signature</h2>
             <p className="text-white/80 text-lg mb-10 leading-relaxed">
-              Lupakan cafe yang bising. Di sini, kami menyediakan lingkungan profesional yang
-              mendukung konsentrasi Anda. Dari WiFi fiber optic hingga meeting room dengan
-              projector.
+              Jadikan Kalih Signature sebagai venue untuk meeting, workshop, gathering, event, hingga kolaborasi brand di Tegal. Tim kami siap membantu mewujudkan acara yang nyaman dan berkesan.
             </p>
             <div className="space-y-6">
               <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
                 <h3 className="font-bold text-xl mb-2">Corporate Meeting Room</h3>
+
                 <p className="text-sm text-white/70">
-                  Kapasitas hingga 15 orang, Smart TV/Projector, dan layanan catering khusus.
+                  Meeting room privat dengan projector, sound system, WiFi cepat, whiteboard, dan kapasitas hingga 20 orang, ideal untuk meeting, presentasi, training, dan workshop.
                 </p>
               </div>
               <div className="bg-white/5 border border-white/10 p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-2">Premium Working Space</h3>
+                <h3 className="font-bold text-xl mb-2">Event & Gathering </h3>
                 <p className="text-sm text-white/70">
-                  Area tenang dengan sofa nyaman dan meja kerja tinggi yang ergonomis.
+                  Cocok untuk workshop, Enggagment, Moment Special, gathering komunitas, hingga acara perusahaan.
                 </p>
               </div>
             </div>
@@ -165,10 +164,10 @@ export default function WorkMeeting() {
             </div>
             <div
               ref={badgeRef}
-              className="absolute -bottom-6 -right-6 bg-white text-primary p-8 rounded-2xl shadow-xl hidden md:flex flex-col items-center gap-2"
+              className="absolute -bottom-4 -right-4 bg-white text-primary p-5 rounded-xl shadow-xl hidden md:flex flex-col items-center gap-1"
             >
               <WifiSignalIcon animate={isVisible} />
-              <p className="text-3xl font-bold mb-0 tabular-nums">{count} Mbps</p>
+              <p className="text-2xl font-bold mb-0 tabular-nums">{count} Mbps</p>
               <p className="text-xs font-bold uppercase tracking-widest opacity-60">
                 Dedicated Connection
               </p>

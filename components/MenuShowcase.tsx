@@ -22,11 +22,10 @@ export default function MenuShowcase() {
             Crafted with Love
           </span>
           <h2 className="font-display text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-            Karya Seni di Setiap Sajian
+            Cita Rasa yang Selalu Dirindukan
           </h2>
           <p className="text-lg md:text-xl mb-12 opacity-90 leading-relaxed font-light">
-            Mulai dari biji kopi pilihan hingga bahan baku lokal yang segar. Setiap hidangan di
-            Kalih Signature adalah perpaduan teknik kuliner modern dan rasa autentik.
+            Nikmati signature coffee, minuman non-coffee, hidangan favorit, dan dessert yang disajikan untuk menemani quality time, meeting, hingga momen bersama keluarga di Kalih Signature.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <Link

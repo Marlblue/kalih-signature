@@ -27,20 +27,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-xl border-b border-white/10 transition-all duration-500 ${isScrolled ? "h-16 shadow-lg shadow-black/10" : "h-20"
+      className={`fixed top-0 w-full z-50 bg-primary/95 backdrop-blur-xl border-b border-white/10 transition-all duration-500 ${isScrolled ? "h-20 shadow-lg shadow-black/10" : "h-28"
         }`}
     >
       <div className="flex justify-between items-center w-full px-gutter max-w-container-max mx-auto h-full">
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logos-navbar/logo-new.webp"
+            src="/logos-navbar/kalih-new.png"
             alt="Kalih Signature"
-            width={128}
-            height={160}
+            width={160}
+            height={200}
             priority
-            className={`w-auto transition-all duration-500 ${
-              isScrolled ? "h-12 md:h-14" : "h-16 md:h-20"
-            }`}
+            className={`w-auto transition-all duration-500 ${isScrolled ? "h-16 md:h-18" : "h-20 md:h-28"
+              }`}
           />
         </Link>
         <div className="hidden lg:flex items-center gap-10">
@@ -50,16 +49,13 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
-                  isActive ? "text-white" : "text-white/80 hover:text-white"
-                }`}
+                className={`text-sm font-medium transition-colors ${isActive ? "text-white" : "text-white/80 hover:text-white"
+                  }`}
               >
                 {link.label}
               </Link>
             );
           })}
-        </div>
-        <div className="flex items-center gap-6">
           <a
             href={WHATSAPP_RESERVATION_URL}
             target="_blank"

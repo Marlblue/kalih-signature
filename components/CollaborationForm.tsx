@@ -13,19 +13,19 @@ const INTERESTS = [
 const CATEGORIES = [
   {
     title: "Corporate",
-    description: "Venue & catering untuk meeting atau gathering perusahaan.",
+    description: "Meeting, training, gathering, dan corporate event dengan fasilitas lengkap.",
   },
   {
-    title: "EO/WO",
-    description: "Kemitraan strategis untuk penyelenggara acara profesional.",
+    title: "EO & WO",
+    description: "Venue yang fleksibel untuk wedding, engagement, seminar, dan berbagai event profesional."
   },
   {
-    title: "KOL",
-    description: "Kolaborasi konten kreatif untuk influencer & content creator.",
+    title: "KOL & Brand",
+    description: "Kolaborasi bersama content creator, influencer, dan brand untuk aktivitas promosi."
   },
   {
     title: "Community",
-    description: "Ruang berkumpul untuk hobi, diskusi, dan kegiatan komunitas.",
+    description: "Tempat berkumpul untuk komunitas, workshop, diskusi, hingga networking."
   },
 ];
 

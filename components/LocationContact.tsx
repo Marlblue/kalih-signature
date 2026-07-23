@@ -1,13 +1,10 @@
-import Image from "next/image";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_ADDRESS_LINE_2,
   BUSINESS_HOURS,
-  GOOGLE_MAPS_URL,
   WHATSAPP_NUMBER_DISPLAY,
   WHATSAPP_RESERVATION_URL,
 } from "@/lib/constants";
-import { STOCK_IMAGES } from "@/lib/stock-images";
 
 export default function LocationContact() {
   return (
@@ -52,33 +49,16 @@ export default function LocationContact() {
             </div>
           </div>
           <div className="lg:col-span-8 rounded-3xl overflow-hidden shadow-2xl h-[400px] border-8 border-surface">
-            <div className="relative w-full h-full flex items-center justify-center">
-              <Image
-                src={STOCK_IMAGES.locationMap.src}
-                alt={STOCK_IMAGES.locationMap.alt}
-                fill
-                sizes="(min-width: 1024px) 66vw, 100vw"
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-primary/10" />
-              <div className="relative z-10 text-center bg-white/90 p-8 rounded-lg shadow-lg border border-primary/10 backdrop-blur-sm">
-                <span className="material-symbols-outlined text-primary text-5xl mb-4">
-                  location_on
-                </span>
-                <h3 className="font-bold text-primary mb-2">Lihat di Google Maps</h3>
-                <p className="text-sm text-secondary mb-6 max-w-xs mx-auto">
-                  Temukan rute tercepat menuju Kalih Signature melalui navigasi favorit Anda.
-                </p>
-                <a
-                  href={GOOGLE_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-primary text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all"
-                >
-                  Buka Peta
-                </a>
-              </div>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.5!2d109.1567!3d-6.8667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb9e2d6e3b1e7%3A0x0!2sKalih+Signature!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokasi Kalih Signature di Google Maps"
+            />
           </div>
         </div>
       </div>
