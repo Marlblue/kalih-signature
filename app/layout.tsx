@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hanken_Grotesk, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -41,6 +42,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <ScrollReveal />
+        <Analytics />
       </body>
     </html>
   );
