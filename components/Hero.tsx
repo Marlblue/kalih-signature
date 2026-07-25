@@ -8,30 +8,25 @@ import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 function useTypewriter(lines: string[], speed: number, pause: number) {
   const [lineIndex, setLineIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [done, setDone] = useState(false);
+
+  const currentLine = lines[lineIndex];
+  const done = lineIndex === lines.length - 1 && charIndex >= currentLine.length;
 
   useEffect(() => {
     if (done) return;
-
-    const currentLine = lines[lineIndex];
 
     if (charIndex < currentLine.length) {
       const timer = setTimeout(() => setCharIndex((c) => c + 1), speed);
       return () => clearTimeout(timer);
     }
 
-    // Finished current line
-    if (lineIndex < lines.length - 1) {
-      const timer = setTimeout(() => {
-        setLineIndex((l) => l + 1);
-        setCharIndex(0);
-      }, pause);
-      return () => clearTimeout(timer);
-    }
-
-    // All lines done
-    setDone(true);
-  }, [lineIndex, charIndex, done, lines, speed, pause]);
+    // Finished current line, advance to the next one
+    const timer = setTimeout(() => {
+      setLineIndex((l) => l + 1);
+      setCharIndex(0);
+    }, pause);
+    return () => clearTimeout(timer);
+  }, [lineIndex, charIndex, done, lines, speed, pause, currentLine]);
 
   // Build displayed lines
   const displayedLines: string[] = [];

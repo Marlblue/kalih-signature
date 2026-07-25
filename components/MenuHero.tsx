@@ -1,12 +1,11 @@
 import Link from "next/link";
 import PageHero from "@/components/ui/PageHero";
-import { STOCK_IMAGES } from "@/lib/stock-images";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
 
 export default function MenuHero() {
   return (
     <PageHero
-      image={{ src: "/menu-hero/page-menu.png", alt: "Menu Kalih Signature" }}
+      image={{ src: "/menu-hero/page-menu.webp", alt: "Menu Kalih Signature" }}
       eyebrow="Menu"
       title="Apa Pun Mood-mu, Ada Menunya."
       description="Ngopi, makan, ngobrol, atau kerja. Tinggal pilih yang kamu suka."

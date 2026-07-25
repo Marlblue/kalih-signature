@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const CATEGORIES = ["Semua", "Ambience", "Coffee & Non Coffee", "Food", "Event"] as const;
+const CATEGORIES = ["Semua", "Food", "Coffee & Non Coffee", "Ambience", "Event"] as const;
 type Category = (typeof CATEGORIES)[number];
 
 const PHOTOS: {

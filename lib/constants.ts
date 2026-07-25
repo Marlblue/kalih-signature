@@ -13,6 +13,11 @@ export const BUSINESS_ADDRESS_LINE_2 = "Kawasan Strategis, Indonesia";
 export const BUSINESS_HOURS = "Senin - Minggu: 08:00 - 23:00 WIB";
 export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/cZaSmnPYXkbUyh2J7";
 
+export const INSTAGRAM_URL = "https://www.instagram.com/kalih.signature/";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61565697152502&locale=id_ID";
+export const TIKTOK_URL = "https://www.tiktok.com/@kalih.signature";
+export const GOFOOD_URL = "https://gofood.co.id/tegal/restaurant/kalih-signature-coffee-and-eatery-jl-raya-pacul-mejasem-tegal-0980e8df-eaff-4cb1-bbaa-f9fa88df3e99";
+
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://kalihcoffee.com";
 
 export const NAV_LINKS = [

@@ -3,9 +3,9 @@ import PageHeader from "@/components/ui/PageHeader";
 export default function ArtikelHeader() {
   return (
     <PageHeader
-      eyebrow="Journal & Editorial"
-      title="Inspirasi & Cerita dari Kalih"
-      description="Menyelami filosofi kenyamanan, kreativitas, dan harmoni alam di jantung Tegal."
+      eyebrow="Artikel"
+      title="Cerita dan Inspirasi dari Kalih"
+      description="Temukan artikel seputar kopi, kuliner, event, komunitas, dan berbagai cerita menarik dari Kalih Signature."
     />
   );
 }

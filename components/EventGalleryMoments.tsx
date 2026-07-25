@@ -2,9 +2,10 @@ import Image from "next/image";
 import Eyebrow from "@/components/ui/Eyebrow";
 
 const MOMENTS = [
-  { image: { src: "/event-moments/Meeting.png", alt: "Meeting Moment" }, caption: "Meeting" },
-  { image: { src: "/event-moments/Nobar.png", alt: "Nobar Moment" }, caption: "Nobar" },
-  { image: { src: "/event-moments/Sepeda.png", alt: "Sepeda Moment" }, caption: "Sepeda" },
+  { image: { src: "/event-moments/Meeting.webp", alt: "Meeting Moment" }, caption: "Meeting" },
+  { image: { src: "/event-moments/Nobar.webp", alt: "Nobar Moment" }, caption: "Nobar" },
+  { image: { src: "/event-moments/Sepeda.webp", alt: "Sepeda Moment" }, caption: "Sepeda" },
+  { image: { src: "/event-moments/Special Moment.webp", alt: "Special Moment" }, caption: "Special Moment" },
 ];
 
 export default function EventGalleryMoments() {
@@ -16,7 +17,7 @@ export default function EventGalleryMoments() {
           Momen yang Telah Kami Abadikan
         </h2>
       </div>
-      <div className="flex gap-6 overflow-x-auto px-gutter pb-4">
+      <div className="flex gap-6 overflow-x-auto px-gutter pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         {MOMENTS.map((moment) => (
           <div
             key={moment.caption}
@@ -26,8 +27,8 @@ export default function EventGalleryMoments() {
               src={moment.image.src}
               alt={moment.image.alt}
               fill
-              sizes="450px"
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              sizes="(min-width: 768px) 450px, 300px"
+              className="object-cover md:grayscale md:group-hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent w-full opacity-0 group-hover:opacity-100 transition-opacity">
               <p className="text-white text-sm font-bold uppercase tracking-widest">

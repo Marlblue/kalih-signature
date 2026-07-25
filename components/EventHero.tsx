@@ -3,7 +3,7 @@ import PageHero from "@/components/ui/PageHero";
 export default function EventHero() {
   return (
     <PageHero
-      image={{ src: "/event-hero/event page.png", alt: "Events at Kalih Signature Tegal" }}
+      image={{ src: "/event-hero/event page.webp", alt: "Events at Kalih Signature Tegal" }}
       eyebrow="Events"
       title="Momen Baik, Tempatnya Juga Harus Baik."
       description="Rayakan bersama keluarga, teman, atau tim dalam suasana yang nyaman."

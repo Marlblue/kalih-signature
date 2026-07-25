@@ -3,15 +3,28 @@ import Image from "next/image";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_HOURS,
-  GOOGLE_MAPS_URL,
+  FACEBOOK_URL,
+  GOFOOD_URL,
+  INSTAGRAM_URL,
   NAV_LINKS,
+  TIKTOK_URL,
   WHATSAPP_NUMBER_DISPLAY,
   WHATSAPP_RESERVATION_URL,
 } from "@/lib/constants";
+import {
+  FacebookIcon,
+  GojekIcon,
+  InstagramIcon,
+  TiktokIcon,
+  WhatsappIcon,
+} from "@/components/icons/BrandIcons";
 
 const SOCIAL_LINKS = [
-  { href: WHATSAPP_RESERVATION_URL, icon: "chat", label: "WhatsApp" },
-  { href: GOOGLE_MAPS_URL, icon: "location_on", label: "Google Maps" },
+  { href: INSTAGRAM_URL, icon: InstagramIcon, label: "Instagram" },
+  { href: FACEBOOK_URL, icon: FacebookIcon, label: "Facebook" },
+  { href: TIKTOK_URL, icon: TiktokIcon, label: "TikTok" },
+  { href: WHATSAPP_RESERVATION_URL, icon: WhatsappIcon, label: "WhatsApp" },
+  { href: GOFOOD_URL, icon: GojekIcon, label: "GoFood" },
 ];
 
 export default function Footer() {
@@ -75,7 +88,7 @@ export default function Footer() {
                 aria-label={social.label}
                 className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all"
               >
-                <span className="material-symbols-outlined text-[20px]">{social.icon}</span>
+                <social.icon className="w-5 h-5" />
               </a>
             ))}
           </div>

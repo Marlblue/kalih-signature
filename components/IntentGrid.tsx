@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { STOCK_IMAGES } from "@/lib/stock-images";
 
 type IntentCard =
   | { type: "photo"; title: string; description: string; src: string; alt: string }

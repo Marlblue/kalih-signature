@@ -11,7 +11,7 @@ export default function ContactFormSection() {
     const formData = new FormData(event.currentTarget);
 
     const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
     const subject = formData.get("subject") as string;
     const message = formData.get("message") as string;
 
@@ -19,7 +19,7 @@ export default function ContactFormSection() {
       `Halo Kalih Signature! 👋`,
       ``,
       `*Nama:* ${name}`,
-      `*Email:* ${email}`,
+      `*No. HP:* ${phone}`,
       `*Subjek:* ${subject}`,
       ``,
       `*Pesan:*`,
@@ -60,13 +60,16 @@ export default function ContactFormSection() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="sr-only">Email</label>
+                  <label htmlFor="contact-phone" className="sr-only">Nomor Telepon</label>
                   <input
                     required
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
+                    id="contact-phone"
+                    name="phone"
+                    type="tel"
+                    inputMode="tel"
+                    pattern="[0-9+\-\s]{9,15}"
+                    title="Masukkan nomor telepon yang valid, contoh: 0812xxxxxxxx"
+                    placeholder="Nomor Telepon"
                     className="w-full px-6 py-4 rounded-lg border border-black/10 bg-surface focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
                 </div>

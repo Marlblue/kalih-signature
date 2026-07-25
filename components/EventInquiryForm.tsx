@@ -2,6 +2,8 @@
 
 import { useState, type FormEvent } from "react";
 import { BUSINESS_ADDRESS, BUSINESS_ADDRESS_LINE_2, WHATSAPP_NUMBER_INTL } from "@/lib/constants";
+import { WhatsappIcon } from "@/components/icons/BrandIcons";
+import { LocationIcon } from "@/components/icons/UiIcons";
 
 const EVENT_TYPES = [
   "Corporate Meeting",
@@ -20,7 +22,7 @@ export default function EventInquiryForm() {
     const formData = new FormData(event.currentTarget);
 
     const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
+    const phone = formData.get("phone") as string;
     const eventType = formData.get("eventType") as string;
     const date = formData.get("date") as string;
     const details = formData.get("details") as string;
@@ -31,7 +33,7 @@ export default function EventInquiryForm() {
       `Saya ingin mengajukan inquiry event:`,
       ``,
       `*Nama:* ${name}`,
-      `*Email:* ${email}`,
+      `*No. HP:* ${phone}`,
       `*Jenis Event:* ${eventType}`,
       `*Tanggal:* ${date}`,
       ``,
@@ -49,15 +51,14 @@ export default function EventInquiryForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-6 tracking-tight leading-tight">
-            Rancang Momen Terbaik Anda.
+            Mau Bikin Acara di Kalih?
           </h2>
           <p className="text-secondary text-lg mb-10 leading-relaxed">
-            Ceritakan visi Anda. Tim event kami akan berkolaborasi untuk menyusun setiap detail
-            pengalaman yang unik untuk Anda.
+            Mulai dari acara keluarga, meeting, gathering, hingga perayaan spesial. Ceritakan saja rencananya, biar kami bantu menyiapkan tempat yang nyaman untuk dinikmati bersama.
           </p>
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <span className="material-symbols-outlined text-primary">location_on</span>
+              <LocationIcon className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
                   Lokasi
@@ -70,12 +71,12 @@ export default function EventInquiryForm() {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <span className="material-symbols-outlined text-primary">mail</span>
+              <WhatsappIcon className="w-6 h-6 text-primary flex-shrink-0" />
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-primary mb-1">
                   Inquiries
                 </p>
-                <p className="text-secondary">events@kalihsignature.com</p>
+                <p className="text-secondary">+62 823-2808-0354</p>
               </div>
             </div>
           </div>
@@ -108,13 +109,16 @@ export default function EventInquiryForm() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="event-email" className="sr-only">Email</label>
+                  <label htmlFor="event-phone" className="sr-only">Nomor Telepon</label>
                   <input
                     required
-                    id="event-email"
-                    name="email"
-                    type="email"
-                    placeholder="Email"
+                    id="event-phone"
+                    name="phone"
+                    type="tel"
+                    inputMode="tel"
+                    pattern="[0-9+\-\s]{9,15}"
+                    title="Masukkan nomor telepon yang valid, contoh: 0812xxxxxxxx"
+                    placeholder="Nomor Telepon"
                     className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
                 </div>

@@ -6,7 +6,7 @@ export default function MenuCallToAction() {
     <section data-reveal className="relative py-24 sm:py-32 text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/menu-cta/image-cta-menu.jpeg"
+          src="/menu-cta/image-cta-menu.webp"
           alt="Suasana Kalih Signature"
           fill
           sizes="100vw"
@@ -14,14 +14,14 @@ export default function MenuCallToAction() {
         />
         <div className="absolute inset-0 bg-gradient-to-l from-black/70 via-black/25 to-transparent" />
       </div>
-      <div className="relative z-10 px-gutter max-w-container-max mx-auto flex justify-end">
-        <div className="max-w-xl text-right">
+      <div className="relative z-10 px-gutter max-w-container-max mx-auto flex justify-center sm:justify-end">
+        <div className="max-w-xl text-center sm:text-right">
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-10 tracking-tight">
             Kalau Sudah di Kalih,
             <br />
             Susah Cepat Pulang.
           </h2>
-          <div className="flex flex-col sm:flex-row gap-6 justify-end items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center sm:justify-end items-center">
             <a
               href={WHATSAPP_RESERVATION_URL}
               target="_blank"
