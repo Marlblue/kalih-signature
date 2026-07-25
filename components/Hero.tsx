@@ -64,7 +64,7 @@ export default function Hero() {
         />
         <div className="absolute inset-0 hero-gradient" />
       </div>
-      <div className="relative z-10 text-center text-white px-gutter max-w-5xl">
+      <div className="relative z-10 min-w-0 w-full text-center text-white px-gutter max-w-5xl">
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-5 sm:mb-8 leading-[1.15] md:leading-[1.1] tracking-tight">
           {displayedLines.map((line, i) => (
             <span key={i}>
@@ -102,18 +102,24 @@ export default function Hero() {
             Menu Kalih
           </a>
         </div>
-        <div className="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-8 overflow-x-auto no-scrollbar -mx-gutter px-gutter sm:mx-0 sm:px-0">
-          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-            <span className="material-symbols-outlined text-yellow-400 fill-1">star</span>
-            <span className="text-sm font-medium whitespace-nowrap">4.8 Google Rating</span>
+        <div className="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-1.5 sm:gap-4 mb-8 overflow-x-auto no-scrollbar min-w-0">
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-white/20">
+            <span className="material-symbols-outlined text-yellow-400 fill-1 text-xs sm:text-xl">star</span>
+            <span className="text-[10px] sm:text-sm font-medium whitespace-nowrap">
+              <span className="sm:hidden">4.8 Rating</span>
+              <span className="hidden sm:inline">4.8 Google Rating</span>
+            </span>
           </div>
-          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-            <span className="material-symbols-outlined">wifi</span>
-            <span className="text-sm font-medium whitespace-nowrap">Free High-Speed WiFi</span>
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-white/20">
+            <span className="material-symbols-outlined text-xs sm:text-xl">wifi</span>
+            <span className="text-[10px] sm:text-sm font-medium whitespace-nowrap">
+              <span className="sm:hidden">Free WiFi</span>
+              <span className="hidden sm:inline">Free High-Speed WiFi</span>
+            </span>
           </div>
-          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-            <span className="material-symbols-outlined">family_restroom</span>
-            <span className="text-sm font-medium whitespace-nowrap">Family Friendly</span>
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-white/20">
+            <span className="material-symbols-outlined text-xs sm:text-xl">family_restroom</span>
+            <span className="text-[10px] sm:text-sm font-medium whitespace-nowrap">Family Friendly</span>
           </div>
         </div>
       </div>
