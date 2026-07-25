@@ -1,10 +1,9 @@
 import PageHero from "@/components/ui/PageHero";
-import { STOCK_IMAGES } from "@/lib/stock-images";
 
 export default function EventHero() {
   return (
     <PageHero
-      image={STOCK_IMAGES.galleryArsitektur2}
+      image={{ src: "/event-hero/event page.png", alt: "Events at Kalih Signature Tegal" }}
       eyebrow="Events"
       title="Momen Baik, Tempatnya Juga Harus Baik."
       description="Rayakan bersama keluarga, teman, atau tim dalam suasana yang nyaman."

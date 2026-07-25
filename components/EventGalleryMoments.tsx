@@ -1,11 +1,10 @@
 import Image from "next/image";
-import { STOCK_IMAGES } from "@/lib/stock-images";
 import Eyebrow from "@/components/ui/Eyebrow";
 
 const MOMENTS = [
-  { image: STOCK_IMAGES.eventGalleryWedding, caption: "Wedding Gala" },
-  { image: STOCK_IMAGES.eventGalleryLaunch, caption: "Product Launch" },
-  { image: STOCK_IMAGES.eventGalleryCommunity, caption: "Community Gathering" },
+  { image: { src: "/event-moments/Meeting.png", alt: "Meeting Moment" }, caption: "Meeting" },
+  { image: { src: "/event-moments/Nobar.png", alt: "Nobar Moment" }, caption: "Nobar" },
+  { image: { src: "/event-moments/Sepeda.png", alt: "Sepeda Moment" }, caption: "Sepeda" },
 ];
 
 export default function EventGalleryMoments() {
