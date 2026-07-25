@@ -5,9 +5,9 @@ export default function EventHero() {
   return (
     <PageHero
       image={STOCK_IMAGES.galleryArsitektur2}
-      eyebrow="Event Experiences"
-      title="Setiap Event Punya Suasananya Sendiri."
-      description="Ubah momen Anda menjadi kenangan abadi di tengah suasana modern yang tetap dekat dengan alam."
+      eyebrow="Events"
+      title="Momen Baik, Tempatnya Juga Harus Baik."
+      description="Rayakan bersama keluarga, teman, atau tim dalam suasana yang nyaman."
     >
       <a
         href="#booking"

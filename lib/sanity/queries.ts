@@ -49,10 +49,10 @@ export async function getOtherArticles(excludeSlug: string, limit: number): Prom
   );
 }
 
-export async function getArticlesBySlugs(slugs: string[]): Promise<SanityArticle[]> {
+export async function getLatestArticles(limit: number): Promise<SanityArticle[]> {
   return sanityClient.fetch(
-    `*[_type == "article" && slug.current in $slugs] ${ARTICLE_PROJECTION}`,
-    { slugs }
+    `*[_type == "article"] | order(_createdAt desc) [0...$limit] ${ARTICLE_PROJECTION}`,
+    { limit }
   );
 }
 

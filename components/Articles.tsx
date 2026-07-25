@@ -1,21 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getArticlesBySlugs } from "@/lib/sanity/queries";
+import { getLatestArticles } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/image";
 
-const HOME_ARTICLE_SLUGS = [
-  "deep-work-di-ruang-terbuka",
-  "akhir-pekan-bersama-keluarga",
-  "seni-manual-brew",
-];
-
 export default async function Articles() {
-  const articles = await getArticlesBySlugs(HOME_ARTICLE_SLUGS);
-  const featuredArticles = HOME_ARTICLE_SLUGS.map((slug) =>
-    articles.find((article) => article.slug === slug)
-  ).filter((article): article is (typeof articles)[number] => Boolean(article));
+  const latestArticles = await getLatestArticles(3);
 
-  if (featuredArticles.length === 0) return null;
+  if (latestArticles.length === 0) return null;
 
   return (
     <section id="articles" data-reveal className="py-24 bg-surface">
@@ -29,7 +20,7 @@ export default async function Articles() {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {featuredArticles.map((article) => (
+          {latestArticles.map((article) => (
             <Link key={article.slug} href={`/artikel/${article.slug}`} className="group block">
               <div className="relative aspect-video rounded-2xl overflow-hidden mb-6">
                 <Image
