@@ -48,12 +48,12 @@ export default function EventInquiryForm() {
 
   return (
     <section id="booking" data-reveal className="py-24 px-gutter max-w-container-max mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
         <div>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-6 tracking-tight leading-tight">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 sm:mb-6 tracking-tight leading-tight">
             Mau Bikin Acara di Kalih?
           </h2>
-          <p className="text-secondary text-lg mb-10 leading-relaxed">
+          <p className="text-secondary text-base sm:text-lg mb-6 sm:mb-10 leading-relaxed">
             Mulai dari acara keluarga, meeting, gathering, hingga perayaan spesial. Ceritakan saja rencananya, biar kami bantu menyiapkan tempat yang nyaman untuk dinikmati bersama.
           </p>
           <div className="space-y-6">
@@ -82,7 +82,7 @@ export default function EventInquiryForm() {
           </div>
         </div>
 
-        <div className="bg-surface p-8 md:p-10 rounded-2xl shadow-xl shadow-primary/5 border border-black/5">
+        <div className="bg-surface p-5 sm:p-8 md:p-10 rounded-2xl shadow-xl shadow-primary/5 border border-black/5">
           {status === "submitted" ? (
             <div className="text-center py-10">
               <span className="material-symbols-outlined text-primary text-5xl mb-4 fill-1">
@@ -95,8 +95,8 @@ export default function EventInquiryForm() {
               </p>
             </div>
           ) : (
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="event-name" className="sr-only">Nama Lengkap</label>
                   <input
@@ -105,7 +105,7 @@ export default function EventInquiryForm() {
                     name="name"
                     type="text"
                     placeholder="Nama Lengkap"
-                    className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
                 </div>
                 <div>
@@ -119,11 +119,11 @@ export default function EventInquiryForm() {
                     pattern="[0-9+\-\s]{9,15}"
                     title="Masukkan nomor telepon yang valid, contoh: 0812xxxxxxxx"
                     placeholder="Nomor Telepon"
-                    className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div className="relative">
                   <label htmlFor="event-type" className="sr-only">Jenis Event</label>
                   <select
@@ -131,7 +131,7 @@ export default function EventInquiryForm() {
                     id="event-type"
                     name="eventType"
                     defaultValue=""
-                    className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none appearance-none"
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 pr-11 sm:pr-12 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none appearance-none"
                   >
                     <option value="" disabled>
                       Jenis Event
@@ -142,7 +142,7 @@ export default function EventInquiryForm() {
                       </option>
                     ))}
                   </select>
-                  <span className="material-symbols-outlined absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-secondary">
+                  <span className="material-symbols-outlined absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 pointer-events-none text-secondary">
                     expand_more
                   </span>
                 </div>
@@ -153,7 +153,7 @@ export default function EventInquiryForm() {
                     id="event-date"
                     name="date"
                     type="date"
-                    className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
                 </div>
               </div>
@@ -165,12 +165,12 @@ export default function EventInquiryForm() {
                   name="details"
                   rows={4}
                   placeholder="Ceritakan suasana yang ingin Anda ciptakan..."
-                  className="w-full px-6 py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                  className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-primary text-white font-bold py-5 rounded-lg hover:shadow-xl hover:scale-[1.02] transition-all active:scale-95 shadow-lg shadow-primary/20"
+                className="w-full bg-primary text-white font-bold py-4 sm:py-5 rounded-lg hover:shadow-xl hover:scale-[1.02] transition-all active:scale-95 shadow-lg shadow-primary/20"
               >
                 Kirim Inquiry
               </button>
