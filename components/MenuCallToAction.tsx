@@ -6,9 +6,9 @@ export default function MenuCallToAction() {
     <section data-reveal className="bg-primary text-white py-24">
       <div className="px-gutter max-w-container-max mx-auto text-center">
         <h2 className="font-display text-3xl md:text-4xl font-bold mb-10 tracking-tight">
-          Siap merasakan hospitality
+          Kalau Sudah di Kalih,
           <br />
-          sesungguhnya?
+          Susah Cepat Pulang.
         </h2>
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
           <a
@@ -18,14 +18,16 @@ export default function MenuCallToAction() {
             className="bg-white text-primary px-10 py-4 rounded-full font-bold flex items-center gap-2 hover:shadow-2xl hover:scale-105 transition-all active:scale-95"
           >
             <span className="material-symbols-outlined text-base">chat_bubble</span>
-            Order via WhatsApp
+            Reservasi Sekarang (WA)
           </a>
-          <Link
-            href="/"
+          <a
+            href="https://gofood.link/a/KM8oooY"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-white/30 text-white px-10 py-4 rounded-full font-bold hover:bg-white/10 transition-all"
           >
-            Kembali ke Beranda
-          </Link>
+            Order Online (GoFood)
+          </a>
         </div>
       </div>
     </section>

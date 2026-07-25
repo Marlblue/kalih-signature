@@ -11,6 +11,8 @@ import FAQ from "@/components/FAQ";
 import Articles from "@/components/Articles";
 import LocationContact from "@/components/LocationContact";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <>

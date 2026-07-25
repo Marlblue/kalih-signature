@@ -9,7 +9,7 @@ type Poster = { src: string; alt: string; label: string };
 const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] }[] = [
   {
     id: "minuman",
-    eyebrow: "Seduhan Pilihan",
+    eyebrow: "Yang Pertama Dicari",
     title: "Minuman",
     posters: [
       {
@@ -46,7 +46,7 @@ const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] 
   },
   {
     id: "utama",
-    eyebrow: "Cita Rasa Dunia, Jiwa Lokal",
+    eyebrow: "Waktunya Makan Enak",
     title: "Menu Utama",
     posters: [
       {
@@ -73,7 +73,7 @@ const SECTIONS: { id: string; eyebrow: string; title: string; posters: Poster[] 
   },
   {
     id: "snack",
-    eyebrow: "Teman Bersantai",
+    eyebrow: "Teman Cerita Panjang",
     title: "Snack & Dessert",
     posters: [
       {

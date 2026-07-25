@@ -4,6 +4,8 @@ import ArtikelFeatured from "@/components/ArtikelFeatured";
 import ArtikelGrid from "@/components/ArtikelGrid";
 import ArtikelNewsletter from "@/components/ArtikelNewsletter";
 
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Artikel | Kalih Signature",
   description:
