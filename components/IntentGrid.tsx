@@ -58,7 +58,7 @@ export default function IntentGrid() {
         </h2>
         <div className="w-20 h-1 bg-primary" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
         {CARDS.map((card) =>
           card.type === "photo" ? (
             <div
@@ -69,13 +69,13 @@ export default function IntentGrid() {
                 src={card.src}
                 alt={card.alt}
                 fill
-                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-              <div className="absolute bottom-0 left-0 p-8 text-white">
-                <h3 className="text-2xl font-bold mb-2">{card.title}</h3>
-                <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute bottom-0 left-0 p-3 sm:p-6 lg:p-8 text-white">
+                <h3 className="text-base sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2">{card.title}</h3>
+                <p className="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden sm:block">
                   {card.description}
                 </p>
               </div>

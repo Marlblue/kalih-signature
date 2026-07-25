@@ -64,7 +64,7 @@ export default function CollaborationForm() {
       <div className="px-gutter max-w-container-max mx-auto">
         <div className="bg-surface p-4 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl shadow-2xl shadow-primary/5 border border-primary/5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
-            <div className="bg-white p-5 sm:p-8 rounded-2xl shadow-xl shadow-primary/5">
+            <div className="order-2 lg:order-1 bg-white p-5 sm:p-8 rounded-2xl shadow-xl shadow-primary/5">
               {status === "submitted" ? (
                 <div className="text-center py-10">
                   <span className="material-symbols-outlined text-primary text-5xl mb-4 fill-1">
@@ -142,7 +142,7 @@ export default function CollaborationForm() {
               )}
             </div>
 
-            <div>
+            <div className="order-1 lg:order-2">
               <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4 sm:mb-6 tracking-tight leading-tight">
                 Kemitraan &amp; Kolaborasi Strategis
               </h2>

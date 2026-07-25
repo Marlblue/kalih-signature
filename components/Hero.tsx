@@ -102,18 +102,18 @@ export default function Hero() {
             Menu Kalih
           </a>
         </div>
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8">
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+        <div className="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-8 overflow-x-auto no-scrollbar -mx-gutter px-gutter sm:mx-0 sm:px-0">
+          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
             <span className="material-symbols-outlined text-yellow-400 fill-1">star</span>
-            <span className="text-sm font-medium">4.8 Google Rating</span>
+            <span className="text-sm font-medium whitespace-nowrap">4.8 Google Rating</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
             <span className="material-symbols-outlined">wifi</span>
-            <span className="text-sm font-medium">Free High-Speed WiFi</span>
+            <span className="text-sm font-medium whitespace-nowrap">Free High-Speed WiFi</span>
           </div>
-          <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+          <div className="flex shrink-0 items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
             <span className="material-symbols-outlined">family_restroom</span>
-            <span className="text-sm font-medium">Family Friendly</span>
+            <span className="text-sm font-medium whitespace-nowrap">Family Friendly</span>
           </div>
         </div>
       </div>
