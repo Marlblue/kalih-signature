@@ -15,7 +15,7 @@ const CATEGORIES = [
   {
     title: "Engagement / Lamaran",
     tagline: "Intim, hangat, dan penuh cerita.",
-    image: STOCK_IMAGES.eventEngagement,
+    image: { src: "/event-categories/Engagement.png", alt: "Engagement" },
   },
   {
     title: "Community Gathering",
