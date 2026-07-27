@@ -74,6 +74,8 @@ export default function HubungiCollaborationForm() {
                 id="hubungi-collab-contact"
                 name="contact"
                 type="text"
+                pattern="[0-9+\-\s]{9,15}|[^\s@]+@[^\s@]+\.[^\s@]+"
+                title="Masukkan nomor WhatsApp (contoh: 0812xxxxxxxx) atau alamat email yang valid"
                 placeholder="No. WhatsApp / Email"
                 className="w-full px-4 py-3.5 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
               />
