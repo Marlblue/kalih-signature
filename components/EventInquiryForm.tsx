@@ -14,6 +14,14 @@ const EVENT_TYPES = [
   "Lainnya",
 ];
 
+function getTodayDateString() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 export default function EventInquiryForm() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
 
@@ -153,7 +161,9 @@ export default function EventInquiryForm() {
                     id="event-date"
                     name="date"
                     type="date"
-                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0"
+                    min={getTodayDateString()}
+                    onClick={(event) => event.currentTarget.showPicker?.()}
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none [&::-webkit-calendar-picker-indicator]:opacity-0"
                   />
                 </div>
               </div>
