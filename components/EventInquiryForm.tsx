@@ -153,7 +153,7 @@ export default function EventInquiryForm() {
                     id="event-date"
                     name="date"
                     type="date"
-                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0"
                   />
                 </div>
               </div>
