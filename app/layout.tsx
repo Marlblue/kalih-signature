@@ -56,6 +56,7 @@ const LOCAL_BUSINESS_JSON_LD = {
   "@type": "CafeOrCoffeeShop",
   name: "Kalih Signature",
   image: `${SITE_URL}/images-hero/hero.webp`,
+  logo: `${SITE_URL}/logos-navbar/kalih-logo-square.png`,
   url: SITE_URL,
   telephone: WHATSAPP_NUMBER_DISPLAY,
   address: {
