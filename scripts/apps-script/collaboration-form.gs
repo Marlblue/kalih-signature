@@ -20,16 +20,26 @@ function doPost(e) {
     SpreadsheetApp.getActiveSpreadsheet().insertSheet("Kolaborasi");
 
   if (sheet.getLastRow() === 0) {
-    sheet.appendRow(["Timestamp", "Nama", "Kontak", "Minat Kolaborasi", "Pesan"]);
+    sheet.appendRow([
+      "Timestamp",
+      "Nama",
+      "No. Telp/WhatsApp",
+      "Platform",
+      "Username",
+      "Jumlah Follower",
+      "Pesan/Proposal",
+    ]);
   }
 
   const params = e.parameter;
   const name = params.name || "";
-  const contact = params.contact || "";
-  const interest = params.interest || "";
+  const phone = params.phone || "";
+  const platform = params.platform || "";
+  const username = params.username || "";
+  const followers = params.followers || "";
   const message = params.message || "";
 
-  sheet.appendRow([new Date(), name, contact, interest, message]);
+  sheet.appendRow([new Date(), name, phone, platform, username, followers, message]);
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
@@ -37,9 +47,11 @@ function doPost(e) {
     body:
       `Ada pengisian form kolaborasi baru:\n\n` +
       `Nama: ${name}\n` +
-      `Kontak: ${contact}\n` +
-      `Minat Kolaborasi: ${interest}\n` +
-      `Pesan: ${message}\n`,
+      `No. Telp/WhatsApp: ${phone}\n` +
+      `Platform: ${platform}\n` +
+      `Username: ${username}\n` +
+      `Jumlah Follower: ${followers}\n` +
+      `Pesan/Proposal: ${message}\n`,
   });
 
   return ContentService.createTextOutput(JSON.stringify({ status: "ok" })).setMimeType(

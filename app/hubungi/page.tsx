@@ -5,6 +5,7 @@ import HubungiLinkGrid from "@/components/HubungiLinkGrid";
 import HubungiSocials from "@/components/HubungiSocials";
 import HubungiCollaborationForm from "@/components/HubungiCollaborationForm";
 import HubungiLocation from "@/components/HubungiLocation";
+import { CollaborationModalProvider } from "@/components/CollaborationModalContext";
 
 export const metadata: Metadata = {
   title: "Hubungi Kami | Kalih Signature",
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
 
 export default function HubungiPage() {
   return (
-    <>
+    <CollaborationModalProvider>
       <HubungiHero />
       <HubungiQuickActions />
       <HubungiLinkGrid />
       <HubungiSocials />
       <HubungiCollaborationForm />
       <HubungiLocation />
-    </>
+    </CollaborationModalProvider>
   );
 }

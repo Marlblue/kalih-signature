@@ -25,7 +25,7 @@ const LINKS = [
     href: WHATSAPP_RESERVATION_URL,
     external: true,
     title: "Event",
-    description: "Gathering, ulang tahun, hingga engagement.",
+    description: "Gathering, hingga engagement.",
     cta: "Reservasi",
     src: "/images-intent/event.webp",
     alt: "Event & gathering Kalih Signature",
