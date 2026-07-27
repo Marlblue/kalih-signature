@@ -1,33 +1,14 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
-import { useCollaborationModal } from "@/components/CollaborationModalContext";
 
 const PLATFORMS = ["Instagram", "TikTok", "YouTube", "X / Twitter", "Other"];
 
 const SCRIPT_URL = process.env.NEXT_PUBLIC_COLLAB_SCRIPT_URL;
 
 export default function HubungiCollaborationForm() {
-  const { isOpen, close } = useCollaborationModal();
   const [status, setStatus] = useState<"idle" | "loading" | "submitted" | "error">("idle");
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    document.body.style.overflow = "hidden";
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") close();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isOpen, close]);
-
-  if (!isOpen) return null;
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -48,41 +29,15 @@ export default function HubungiCollaborationForm() {
     }
   };
 
-  const handleClose = () => {
-    close();
-    setStatus("idle");
-  };
-
   const underlineInput =
     "w-full border-0 border-b border-outline-variant bg-transparent py-2 px-0 focus:border-primary focus:ring-0 transition-colors outline-none placeholder:text-secondary/60";
   const underlineLabel = "block text-xs font-bold uppercase tracking-widest text-primary mb-2";
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="kolaborasi-title"
-    >
-      <button
-        type="button"
-        aria-label="Tutup form kolaborasi"
-        onClick={handleClose}
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-      />
-
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto bg-white p-6 sm:p-10 rounded-2xl border border-outline-variant shadow-2xl">
-        <button
-          type="button"
-          aria-label="Tutup"
-          onClick={handleClose}
-          className="absolute top-4 right-4 flex items-center justify-center w-9 h-9 rounded-full text-secondary hover:bg-black/5 transition-colors"
-        >
-          <span className="material-symbols-outlined">close</span>
-        </button>
-
+    <section data-reveal className="px-gutter max-w-2xl mx-auto py-16">
+      <div className="bg-white p-6 sm:p-10 rounded-2xl border border-outline-variant shadow-2xl">
         <div className="mb-8 text-center">
-          <h2 id="kolaborasi-title" className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-2">
             Kolaborasi KOL x Kalih Signature
           </h2>
           <p className="text-secondary text-sm max-w-md mx-auto">
@@ -99,13 +54,6 @@ export default function HubungiCollaborationForm() {
             <p className="text-secondary text-sm max-w-sm mx-auto">
               Pesan Anda sudah kami catat. Tim Kalih Signature akan segera menghubungi Anda.
             </p>
-            <button
-              type="button"
-              onClick={handleClose}
-              className="mt-6 text-xs font-bold uppercase tracking-widest text-primary hover:opacity-70 transition-opacity"
-            >
-              Tutup
-            </button>
           </div>
         ) : (
           <form className="space-y-8" onSubmit={handleSubmit}>
@@ -119,6 +67,10 @@ export default function HubungiCollaborationForm() {
                   id="hubungi-collab-name"
                   name="name"
                   type="text"
+                  minLength={3}
+                  maxLength={60}
+                  pattern="[A-Za-zÀ-ÿ][A-Za-zÀ-ÿ.'\-\s]{2,59}"
+                  title="Masukkan nama lengkap yang valid (minimal 3 huruf)"
                   placeholder="Your full name"
                   className={underlineInput}
                 />
@@ -175,6 +127,8 @@ export default function HubungiCollaborationForm() {
                   id="hubungi-collab-username"
                   name="username"
                   type="text"
+                  pattern="@?[A-Za-z0-9._]{2,30}"
+                  title="Masukkan username yang valid, contoh: @yourhandle"
                   placeholder="@yourhandle"
                   className={underlineInput}
                 />
@@ -190,6 +144,8 @@ export default function HubungiCollaborationForm() {
                 id="hubungi-collab-followers"
                 name="followers"
                 type="text"
+                pattern="[0-9]+([.,][0-9]+)?\s?(k|rb|jt|m)?"
+                title="Masukkan jumlah follower yang valid, contoh: 50k atau 1.2jt"
                 placeholder="e.g. 50k"
                 className={underlineInput}
               />
@@ -204,6 +160,8 @@ export default function HubungiCollaborationForm() {
                 id="hubungi-collab-message"
                 name="message"
                 rows={4}
+                minLength={10}
+                maxLength={1000}
                 placeholder="Briefly describe your vision for this collaboration..."
                 className={`${underlineInput} resize-none`}
               />
@@ -236,6 +194,6 @@ export default function HubungiCollaborationForm() {
           </form>
         )}
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,11 +1,6 @@
-"use client";
-
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
-import { useCollaborationModal } from "@/components/CollaborationModalContext";
 
 export default function HubungiQuickActions() {
-  const { open } = useCollaborationModal();
-
   return (
     <section className="px-gutter max-w-xl mx-auto space-y-4 mb-8">
       <a
@@ -20,9 +15,8 @@ export default function HubungiQuickActions() {
         </div>
         <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
       </a>
-      <button
-        type="button"
-        onClick={open}
+      <a
+        href="/hubungi/kolaborasi"
         className="flex items-center justify-between w-full bg-surface text-primary p-5 rounded-xl border border-outline-variant hover:bg-primary/5 transition-colors"
       >
         <div className="flex items-center gap-4">
@@ -30,7 +24,7 @@ export default function HubungiQuickActions() {
           <span className="text-xs font-bold uppercase tracking-widest">Form Kolaborasi</span>
         </div>
         <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
-      </button>
+      </a>
     </section>
   );
 }
