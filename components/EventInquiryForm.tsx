@@ -155,9 +155,6 @@ export default function EventInquiryForm() {
                     type="date"
                     className="peer w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
                   />
-                  <span className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-secondary/60 pointer-events-none peer-focus:hidden peer-valid:hidden">
-                    Tanggal Event
-                  </span>
                 </div>
               </div>
               <div>

@@ -40,23 +40,31 @@ export default function EventCategories() {
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
-        {CATEGORIES.map((category, index) => (
-          <div key={category.title} className={`group cursor-pointer ${index % 2 === 1 ? "lg:mt-12" : ""}`}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 sm:mb-4">
-              <Image
-                src={category.image.src}
-                alt={category.image.alt}
-                fill
-                sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 50vw"
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+        {CATEGORIES.map((category, index) => {
+          const isLastOdd = CATEGORIES.length % 2 === 1 && index === CATEGORIES.length - 1;
+          return (
+            <div
+              key={category.title}
+              className={`group cursor-pointer ${index % 2 === 1 ? "lg:mt-12" : ""} ${
+                isLastOdd ? "col-span-2 w-1/2 mx-auto md:col-span-1 md:w-auto md:mx-0" : ""
+              }`}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl mb-3 sm:mb-4">
+                <Image
+                  src={category.image.src}
+                  alt={category.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 33vw, 50vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+              <h3 className="font-bold text-base sm:text-lg text-primary mb-1">{category.title}</h3>
+              <p className="text-xs sm:text-sm text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+                {category.tagline}
+              </p>
             </div>
-            <h3 className="font-bold text-base sm:text-lg text-primary mb-1">{category.title}</h3>
-            <p className="text-xs sm:text-sm text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
-              {category.tagline}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
