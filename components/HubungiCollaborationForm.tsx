@@ -9,6 +9,8 @@ const SCRIPT_URL = process.env.NEXT_PUBLIC_COLLAB_SCRIPT_URL;
 
 export default function HubungiCollaborationForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "submitted" | "error">("idle");
+  const [phone, setPhone] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -20,6 +22,8 @@ export default function HubungiCollaborationForm() {
 
     setStatus("loading");
     const formData = new FormData(event.currentTarget);
+    formData.set("phone", `+62${phone}`);
+    formData.set("username", `@${username}`);
 
     try {
       await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData });
@@ -79,17 +83,24 @@ export default function HubungiCollaborationForm() {
                 <label htmlFor="hubungi-collab-phone" className={underlineLabel}>
                   No. Telp / WhatsApp
                 </label>
-                <input
-                  required
-                  id="hubungi-collab-phone"
-                  name="phone"
-                  type="tel"
-                  inputMode="tel"
-                  pattern="[0-9+\-\s]{9,15}"
-                  title="Masukkan nomor WhatsApp yang valid, contoh: 0812xxxxxxxx"
-                  placeholder="+62 812..."
-                  className={underlineInput}
-                />
+                <div className="flex items-center border-b border-outline-variant focus-within:border-primary transition-colors">
+                  <span className="py-2 pr-1 text-secondary select-none">+62</span>
+                  <input
+                    required
+                    id="hubungi-collab-phone"
+                    name="phone"
+                    type="tel"
+                    inputMode="numeric"
+                    value={phone}
+                    onChange={(event) => setPhone(event.target.value.replace(/\D/g, ""))}
+                    minLength={8}
+                    maxLength={13}
+                    pattern="(?!(\d)\1{7,12}$)8[0-9]{7,12}"
+                    title="Masukkan nomor WhatsApp yang valid, harus diawali angka 8, contoh: 812xxxxxxxx"
+                    placeholder="812xxxxxxxx"
+                    className="w-full border-0 bg-transparent py-2 px-0 focus:ring-0 outline-none placeholder:text-secondary/60"
+                  />
+                </div>
               </div>
             </div>
 
@@ -122,33 +133,55 @@ export default function HubungiCollaborationForm() {
                 <label htmlFor="hubungi-collab-username" className={underlineLabel}>
                   Username
                 </label>
-                <input
-                  required
-                  id="hubungi-collab-username"
-                  name="username"
-                  type="text"
-                  pattern="@?[A-Za-z0-9._]{2,30}"
-                  title="Masukkan username yang valid, contoh: @yourhandle"
-                  placeholder="@yourhandle"
-                  className={underlineInput}
-                />
+                <div className="flex items-center border-b border-outline-variant focus-within:border-primary transition-colors">
+                  <span className="py-2 pr-1 text-secondary select-none">@</span>
+                  <input
+                    required
+                    id="hubungi-collab-username"
+                    name="username"
+                    type="text"
+                    value={username}
+                    onChange={(event) => setUsername(event.target.value.replace(/^@+/, ""))}
+                    pattern="[A-Za-z0-9._]{2,30}"
+                    title="Masukkan username yang valid, contoh: yourhandle"
+                    placeholder="yourhandle"
+                    className="w-full border-0 bg-transparent py-2 px-0 focus:ring-0 outline-none placeholder:text-secondary/60"
+                  />
+                </div>
               </div>
             </div>
 
-            <div>
-              <label htmlFor="hubungi-collab-followers" className={underlineLabel}>
-                Jumlah Follower
-              </label>
-              <input
-                required
-                id="hubungi-collab-followers"
-                name="followers"
-                type="text"
-                pattern="[0-9]+([.,][0-9]+)?\s?(k|rb|jt|m)?"
-                title="Masukkan jumlah follower yang valid, contoh: 50k atau 1.2jt"
-                placeholder="e.g. 50k"
-                className={underlineInput}
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="hubungi-collab-followers" className={underlineLabel}>
+                  Jumlah Follower
+                </label>
+                <input
+                  required
+                  id="hubungi-collab-followers"
+                  name="followers"
+                  type="text"
+                  pattern="[0-9]+([.,][0-9]+)?\s?(k|rb|jt|m)?"
+                  title="Masukkan jumlah follower yang valid, contoh: 50k atau 1.2jt"
+                  placeholder="e.g. 50k"
+                  className={underlineInput}
+                />
+              </div>
+              <div>
+                <label htmlFor="hubungi-collab-domicile" className={underlineLabel}>
+                  Domisili
+                </label>
+                <input
+                  required
+                  id="hubungi-collab-domicile"
+                  name="domicile"
+                  type="text"
+                  minLength={3}
+                  maxLength={60}
+                  placeholder="Tegal"
+                  className={underlineInput}
+                />
+              </div>
             </div>
 
             <div>

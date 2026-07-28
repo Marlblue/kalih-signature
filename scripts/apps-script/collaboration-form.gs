@@ -27,6 +27,7 @@ function doPost(e) {
       "Platform",
       "Username",
       "Jumlah Follower",
+      "Domisili",
       "Pesan/Proposal",
     ]);
   }
@@ -37,9 +38,10 @@ function doPost(e) {
   const platform = params.platform || "";
   const username = params.username || "";
   const followers = params.followers || "";
+  const domicile = params.domicile || "";
   const message = params.message || "";
 
-  sheet.appendRow([new Date(), name, phone, platform, username, followers, message]);
+  sheet.appendRow([new Date(), name, phone, platform, username, followers, domicile, message]);
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL,
@@ -51,6 +53,7 @@ function doPost(e) {
       `Platform: ${platform}\n` +
       `Username: ${username}\n` +
       `Jumlah Follower: ${followers}\n` +
+      `Domisili: ${domicile}\n` +
       `Pesan/Proposal: ${message}\n`,
   });
 
