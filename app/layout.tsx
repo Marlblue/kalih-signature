@@ -46,9 +46,6 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: ["/images-hero/hero.webp"],
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 const LOCAL_BUSINESS_JSON_LD = {
