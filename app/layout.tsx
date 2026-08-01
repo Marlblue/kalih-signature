@@ -74,6 +74,9 @@ export default function RootLayout({
   return (
     <html lang="id" data-scroll-behavior="smooth" className={`${hankenGrotesk.variable} ${inter.variable} scroll-smooth h-full`}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" href="/icon.png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
