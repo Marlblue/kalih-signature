@@ -65,20 +65,26 @@ export default function Hero() {
         <div className="absolute inset-0 hero-gradient" />
       </div>
       <div className="relative z-10 min-w-0 w-full text-center text-white px-gutter max-w-5xl">
-        <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-5 sm:mb-8 leading-[1.15] md:leading-[1.1] tracking-tight">
-          {displayedLines.map((line, i) => (
-            <span key={i}>
-              {i > 0 && <br />}
-              {line}
-              {/* Show blinking cursor at the end of the currently-typing line */}
-              {i === displayedLines.length - 1 && !done && (
-                <span className="typewriter-cursor" aria-hidden="true">
-                  |
-                </span>
-              )}
-            </span>
-          ))}
-          {/* Invisible full text for SEO / screen readers */}
+        <h1 className="relative font-display text-4xl sm:text-5xl md:text-7xl font-bold mb-5 sm:mb-8 leading-[1.15] md:leading-[1.1] tracking-tight">
+          {/* Reserves the final layout size up front so the typing animation never shifts content below it */}
+          <span className="invisible" aria-hidden="true">
+            Selalu Ada Alasan ke Kalih Signature.
+          </span>
+          <span className="absolute inset-0" aria-hidden="true">
+            {displayedLines.map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br />}
+                {line}
+                {/* Show blinking cursor at the end of the currently-typing line */}
+                {i === displayedLines.length - 1 && !done && (
+                  <span className="typewriter-cursor" aria-hidden="true">
+                    |
+                  </span>
+                )}
+              </span>
+            ))}
+          </span>
+          {/* Full text for SEO / screen readers */}
           <span className="sr-only">
             Selalu Ada Alasan ke Kalih Signature.
           </span>

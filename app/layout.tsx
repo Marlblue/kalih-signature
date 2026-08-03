@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import DeferredIconFont from "@/components/DeferredIconFont";
 import { BUSINESS_ADDRESS, BUSINESS_HOURS, SITE_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/constants";
 import "./globals.css";
 
@@ -79,10 +80,6 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}
@@ -109,6 +106,7 @@ export default function RootLayout({
         <Footer />
         <FloatingWhatsApp />
         <ScrollReveal />
+        <DeferredIconFont />
         <Analytics />
       </body>
     </html>

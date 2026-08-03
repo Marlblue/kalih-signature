@@ -45,7 +45,7 @@ export default function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Navigasi</h4>
+            <h3 className="font-bold text-lg mb-6 text-white">Navigasi</h3>
             <ul className="space-y-4 text-white/70 text-sm">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -57,7 +57,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Kontak</h4>
+            <h3 className="font-bold text-lg mb-6 text-white">Kontak</h3>
             <ul className="space-y-4 text-white/70 text-sm">
               <li>{BUSINESS_ADDRESS}</li>
               <li>{BUSINESS_HOURS}</li>
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-sm text-white/50">
+          <div className="text-sm text-white/70">
             © {new Date().getFullYear()} Kalih Signature. Seluruh Hak Cipta Dilindungi.
           </div>
           <div className="flex gap-4">

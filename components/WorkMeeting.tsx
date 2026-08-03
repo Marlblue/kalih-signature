@@ -168,7 +168,7 @@ export default function WorkMeeting() {
             >
               <WifiSignalIcon animate={isVisible} />
               <p className="text-xs sm:text-lg font-bold mb-0 tabular-nums">{count} Mbps</p>
-              <p className="text-[7px] sm:text-[10px] font-bold uppercase tracking-widest opacity-60 whitespace-nowrap">
+              <p className="text-[7px] sm:text-[10px] font-bold uppercase tracking-widest text-secondary whitespace-nowrap">
                 Dedicated Connection
               </p>
             </div>
