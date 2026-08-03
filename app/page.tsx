@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Hero from "@/components/Hero";
 import IntentGrid from "@/components/IntentGrid";
 import Facilities from "@/components/Facilities";
@@ -26,7 +27,9 @@ export default function Home() {
       <Gallery />
       <Testimonials />
       <FAQ />
-      <Articles />
+      <Suspense fallback={null}>
+        <Articles />
+      </Suspense>
       <LocationContact />
     </>
   );

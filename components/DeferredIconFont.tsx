@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 const MATERIAL_SYMBOLS_URL =
-  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block";
+  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=optional";
 
 /**
  * Loads the Material Symbols stylesheet after the page has painted instead of
