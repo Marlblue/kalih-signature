@@ -41,7 +41,7 @@ export default function Facilities() {
                   {facility.icon}
                 </span>
               </div>
-              <h3 className="font-bold text-lg mb-2">{facility.title}</h3>
+              <h4 className="font-bold text-lg mb-2">{facility.title}</h4>
               <p className="text-sm text-secondary">{facility.description}</p>
             </div>
           ))}

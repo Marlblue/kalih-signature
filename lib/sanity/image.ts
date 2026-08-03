@@ -5,5 +5,5 @@ import { SANITY_DATASET, SANITY_PROJECT_ID } from "./env";
 const builder = createImageUrlBuilder({ projectId: SANITY_PROJECT_ID, dataset: SANITY_DATASET });
 
 export function urlFor(source: Image) {
-  return builder.image(source).auto("format").quality(75);
+  return builder.image(source);
 }
