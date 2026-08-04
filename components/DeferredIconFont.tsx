@@ -18,8 +18,10 @@ export default function DeferredIconFont() {
   useEffect(() => {
     const reveal = () => document.documentElement.classList.add("icons-ready");
     // Safety net in case the font fails to load or the Font Loading API
-    // is unavailable, so icons don't stay invisible forever.
-    const fallback = setTimeout(reveal, 2000);
+    // is unavailable, so icons don't stay invisible forever. Kept long
+    // because a short timeout can fire before a slow first load finishes,
+    // which reveals the raw ligature text anyway (the original bug).
+    const fallback = setTimeout(reveal, 6000);
 
     const onFontsReady = () => {
       document.fonts
