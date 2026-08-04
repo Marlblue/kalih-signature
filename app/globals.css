@@ -52,6 +52,13 @@ body {
   direction: ltr;
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
+  /* Hide the raw ligature text (e.g. "star", "menu") until the deferred
+     icon font has actually loaded, see DeferredIconFont. */
+  visibility: hidden;
+}
+
+html.icons-ready .material-symbols-outlined {
+  visibility: visible;
 }
 
 .material-symbols-outlined.fill-1 {
