@@ -1,3 +1,4 @@
+import LazyMapEmbed from "@/components/LazyMapEmbed";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_ADDRESS_LINE_2,
@@ -10,12 +11,10 @@ export default function HubungiLocation() {
     <section className="px-gutter max-w-container-max mx-auto mb-16">
       <div className="bg-surface border border-outline-variant rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-sm">
         <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
-          <iframe
+          <LazyMapEmbed
             src="https://www.google.com/maps?q=Kalih+Signature+Coffee+and+Eatery+Tegal&ll=-6.8887307,109.1503639&z=17&output=embed"
-            className="absolute inset-0 w-full h-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
             title="Lokasi Kalih Signature di Google Maps"
+            className="absolute inset-0 w-full h-full border-0"
           />
         </div>
         <div className="p-8 md:w-1/2 flex flex-col justify-center">

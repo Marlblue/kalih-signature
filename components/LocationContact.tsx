@@ -1,3 +1,4 @@
+import LazyMapEmbed from "@/components/LazyMapEmbed";
 import {
   BUSINESS_ADDRESS,
   BUSINESS_ADDRESS_LINE_2,
@@ -48,15 +49,11 @@ export default function LocationContact() {
             </div>
           </div>
           <div className="lg:col-span-8 rounded-3xl overflow-hidden shadow-2xl h-[400px] border-8 border-surface">
-            <iframe
+            <LazyMapEmbed
               src="https://www.google.com/maps?q=Kalih+Signature+Coffee+and+Eatery+Tegal&ll=-6.8887307,109.1503639&z=17&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
               title="Lokasi Kalih Signature di Google Maps"
+              className="w-full h-full border-0"
+              allowFullScreen
             />
           </div>
         </div>
