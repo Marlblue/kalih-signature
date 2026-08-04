@@ -43,7 +43,6 @@ body {
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
-  display: inline-block;
   width: 1em;
   height: 1em;
   overflow: hidden;
@@ -53,12 +52,17 @@ body {
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
   /* Hide the raw ligature text (e.g. "star", "menu") until the deferred
-     icon font has actually loaded, see DeferredIconFont. */
-  visibility: hidden;
+     icon font has actually loaded, see DeferredIconFont. `display: none`
+     (not visibility: hidden) is required here: a hidden element's text
+     never gets re-shaped once the font arrives, so simply toggling
+     visibility later re-paints the stale fallback-font glyphs forever.
+     Toggling `display` forces the browser to lay the element out (and
+     shape its ligature) fresh, using whatever font is active by then. */
+  display: none;
 }
 
 html.icons-ready .material-symbols-outlined {
-  visibility: visible;
+  display: inline-block;
 }
 
 .material-symbols-outlined.fill-1 {
