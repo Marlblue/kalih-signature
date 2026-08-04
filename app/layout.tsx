@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import DeferredIconFont from "@/components/DeferredIconFont";
+import DeferredIconFont, { MATERIAL_SYMBOLS_URL } from "@/components/DeferredIconFont";
 import { BUSINESS_ADDRESS, BUSINESS_HOURS, SITE_URL, WHATSAPP_NUMBER_DISPLAY } from "@/lib/constants";
 import "./globals.css";
 
@@ -80,6 +80,10 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Start fetching the icon font stylesheet as early as possible (parse time)
+            instead of waiting for React to hydrate, so it's ready well before the
+            6s safety-net in DeferredIconFont would otherwise reveal fallback text. */}
+        <link rel="preload" as="style" href={MATERIAL_SYMBOLS_URL} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_JSON_LD) }}

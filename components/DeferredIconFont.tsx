@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const MATERIAL_SYMBOLS_URL =
+export const MATERIAL_SYMBOLS_URL =
   "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=optional";
 
 /**
@@ -34,7 +34,7 @@ export default function DeferredIconFont() {
     };
 
     const existing = document.querySelector<HTMLLinkElement>(
-      `link[href="${MATERIAL_SYMBOLS_URL}"]`
+      `link[rel="stylesheet"][href="${MATERIAL_SYMBOLS_URL}"]`
     );
     if (existing) {
       onFontsReady();
