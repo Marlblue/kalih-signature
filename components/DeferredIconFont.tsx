@@ -2,8 +2,42 @@
 
 import { useEffect } from "react";
 
-export const MATERIAL_SYMBOLS_URL =
-  "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=optional";
+// Every Material Symbols ligature name (e.g. `material-symbols-outlined">star`)
+// used anywhere in the app. Google's `icon_names` param subsets the font to just
+// these glyphs (~5KB instead of the ~450KB full icon set), so the download
+// finishes fast enough that visitors never hit the fallback below and see raw
+// ligature text like "star" or "menu" flash on the page. Must stay alphabetized
+// (the API rejects unsorted lists) and updated whenever a new icon name is used.
+const ICON_NAMES = [
+  "arrow_back",
+  "arrow_forward",
+  "arrow_forward_ios",
+  "call",
+  "chat",
+  "check_circle",
+  "child_care",
+  "close",
+  "directions",
+  "expand_more",
+  "family_restroom",
+  "handshake",
+  "local_parking",
+  "menu",
+  "park",
+  "person",
+  "schedule",
+  "star",
+  "wifi",
+  "zoom_in",
+].join(",");
+
+// `display=swap` (not `optional`): Chrome's `optional` mode reserves the right to
+// abandon the font download entirely based on live network-condition heuristics,
+// which is non-deterministic and was observed to sometimes leave the font stuck
+// in the "loading" state forever, permanently freezing icons as fallback text.
+// `swap` always eventually applies the font once it arrives; the `icons-ready`
+// gating below is what already prevents the FOUC `swap` is normally used for.
+export const MATERIAL_SYMBOLS_URL = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&icon_names=${ICON_NAMES}&display=swap`;
 
 /**
  * Loads the Material Symbols stylesheet after the page has painted instead of
