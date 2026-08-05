@@ -24,6 +24,9 @@ function getTodayDateString() {
 
 export default function EventInquiryForm() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [eventDate, setEventDate] = useState("");
+  const [isDateFocused, setIsDateFocused] = useState(false);
+  const showDatePlaceholder = !eventDate && !isDateFocused;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -162,8 +165,18 @@ export default function EventInquiryForm() {
                     name="date"
                     type="date"
                     min={getTodayDateString()}
-                    className="w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none"
+                    value={eventDate}
+                    onChange={(event) => setEventDate(event.target.value)}
+                    onFocus={() => setIsDateFocused(true)}
+                    onBlur={() => setIsDateFocused(false)}
+                    className={`w-full px-4 py-3.5 sm:px-6 sm:py-4 rounded-lg border border-black/10 bg-white focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all outline-none ${showDatePlaceholder ? "text-transparent" : ""
+                      }`}
                   />
+                  {showDatePlaceholder && (
+                    <span className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-secondary/60 pointer-events-none">
+                      Tanggal Event
+                    </span>
+                  )}
                 </div>
               </div>
               <div>

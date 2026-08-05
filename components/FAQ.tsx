@@ -79,9 +79,9 @@ export default function FAQ() {
                   aria-expanded={isOpen}
                   className="flex justify-between items-center w-full px-8 py-6 text-left font-bold text-primary hover:bg-primary/5 transition-colors"
                 >
-                  <span>{item.question}</span>
+                  <span className="min-w-0">{item.question}</span>
                   <span
-                    className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                    className={`material-symbols-outlined shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                       }`}
                   >
                     expand_more
