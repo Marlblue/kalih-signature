@@ -6,7 +6,9 @@
  */
 export const WHATSAPP_NUMBER_DISPLAY = "+62 823-2808-0354";
 export const WHATSAPP_NUMBER_INTL = "6282328080354";
-export const WHATSAPP_RESERVATION_URL = `https://wa.me/${WHATSAPP_NUMBER_INTL}`;
+// api.whatsapp.com directly, not wa.me — wa.me is just a redirector that
+// hops through api.whatsapp.com before opening the app, adding a visible delay.
+export const WHATSAPP_RESERVATION_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER_INTL}`;
 
 export const BUSINESS_ADDRESS = "Jl. Raya Pacul No.18B, Sibata, Mejasem Bar., Kec. Kramat, Kabupaten Tegal, Jawa Tengah 52181";
 export const BUSINESS_ADDRESS_LINE_2 = "Kawasan Strategis, Indonesia";

@@ -52,7 +52,7 @@ export default function EventInquiryForm() {
       details,
     ].join("\n");
 
-    const waUrl = `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${encodeURIComponent(waText)}`;
+    const waUrl = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER_INTL}&text=${encodeURIComponent(waText)}`;
     window.open(waUrl, "_blank", "noopener,noreferrer");
     setStatus("submitted");
   };
