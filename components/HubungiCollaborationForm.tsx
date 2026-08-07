@@ -11,6 +11,7 @@ export default function HubungiCollaborationForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "submitted" | "error">("idle");
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
+  const [platform, setPlatform] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -24,6 +25,10 @@ export default function HubungiCollaborationForm() {
     const formData = new FormData(event.currentTarget);
     formData.set("phone", `+62${phone}`);
     formData.set("username", `@${username}`);
+    if (platform === "Other") {
+      formData.set("platform", formData.get("platformOther") as string);
+      formData.delete("platformOther");
+    }
 
     try {
       await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData });
@@ -105,29 +110,44 @@ export default function HubungiCollaborationForm() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="relative">
+              <div>
                 <label htmlFor="hubungi-collab-platform" className={underlineLabel}>
                   Platform Utama
                 </label>
-                <select
-                  required
-                  id="hubungi-collab-platform"
-                  name="platform"
-                  defaultValue=""
-                  className={`${underlineInput} appearance-none pr-8`}
-                >
-                  <option value="" disabled>
-                    Pilih platform
-                  </option>
-                  {PLATFORMS.map((platform) => (
-                    <option key={platform} value={platform}>
-                      {platform}
+                <div className="relative">
+                  <select
+                    required
+                    id="hubungi-collab-platform"
+                    name="platform"
+                    value={platform}
+                    onChange={(event) => setPlatform(event.target.value)}
+                    className={`${underlineInput} appearance-none pr-8`}
+                  >
+                    <option value="" disabled>
+                      Pilih platform
                     </option>
-                  ))}
-                </select>
-                <span className="material-symbols-outlined absolute right-0 bottom-2 pointer-events-none text-secondary text-lg">
-                  expand_more
-                </span>
+                    {PLATFORMS.map((platformOption) => (
+                      <option key={platformOption} value={platformOption}>
+                        {platformOption}
+                      </option>
+                    ))}
+                  </select>
+                  <span className="material-symbols-outlined absolute right-0 bottom-2 pointer-events-none text-secondary text-lg">
+                    expand_more
+                  </span>
+                </div>
+                {platform === "Other" && (
+                  <input
+                    required
+                    id="hubungi-collab-platform-other"
+                    name="platformOther"
+                    type="text"
+                    minLength={2}
+                    maxLength={40}
+                    placeholder="Sebutkan platform lainnya"
+                    className={`${underlineInput} mt-3`}
+                  />
+                )}
               </div>
               <div>
                 <label htmlFor="hubungi-collab-username" className={underlineLabel}>

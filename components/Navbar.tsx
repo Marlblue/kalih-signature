@@ -43,6 +43,7 @@ export default function Navbar() {
             alt="Kalih Signature"
             width={176}
             height={93}
+            priority
             className={`w-auto transition-all duration-500 ${isScrolled ? "h-9 sm:h-12 md:h-14" : "h-10 sm:h-16 md:h-22"
               }`}
           />

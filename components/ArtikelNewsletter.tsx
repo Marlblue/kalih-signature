@@ -5,7 +5,7 @@ import { useState, type FormEvent } from "react";
 /**
  * Submit is a stub: it only confirms the form was filled in correctly.
  * No data is sent anywhere yet — wiring this to an email provider is a
- * follow-up task (see PRD.md, "Backlog").
+ * follow-up task.
  */
 export default function ArtikelNewsletter() {
   const [status, setStatus] = useState<"idle" | "submitted">("idle");

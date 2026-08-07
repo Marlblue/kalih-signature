@@ -8,10 +8,8 @@ import {
 } from "@/lib/constants";
 
 /**
- * Draft answers — the source design only listed questions with no content
- * and no open/close behaviour. Wording below is a reasonable first pass
- * based on facts already stated elsewhere on the page; flag for client
- * review before launch (see PRD.md, "Aset & Konten").
+ * Draft answers based on facts already stated elsewhere on the page —
+ * flag for client review before launch.
  */
 const FAQ_ITEMS = [
   {

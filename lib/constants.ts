@@ -1,9 +1,3 @@
-/**
- * Placeholder business info. The source design mixed a stub link
- * (wa.me/your-number) with a display-only phone number — these are unified
- * here so both stay in sync. Replace with real values before launch
- * (see PRD.md, "Aset & Konten").
- */
 export const WHATSAPP_NUMBER_DISPLAY = "+62 823-2808-0354";
 export const WHATSAPP_NUMBER_INTL = "6282328080354";
 // api.whatsapp.com directly, not wa.me — wa.me is just a redirector that

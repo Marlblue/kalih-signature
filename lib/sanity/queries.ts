@@ -24,6 +24,22 @@ export async function getNonFeaturedArticles(): Promise<SanityArticle[]> {
   );
 }
 
+export async function getNonFeaturedArticlesCount(): Promise<number> {
+  return sanityClient.fetch(`count(*[_type == "article" && featured != true])`);
+}
+
+export async function getNonFeaturedArticlesPage(
+  page: number,
+  pageSize: number
+): Promise<SanityArticle[]> {
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  return sanityClient.fetch(
+    `*[_type == "article" && featured != true] | order(_createdAt desc) [$start...$end] ${ARTICLE_PROJECTION}`,
+    { start, end }
+  );
+}
+
 export async function getFeaturedArticle(): Promise<SanityArticle | null> {
   const featured = await sanityClient.fetch<SanityArticle | null>(
     `*[_type == "article" && featured == true] | order(_createdAt desc) [0] ${ARTICLE_PROJECTION}`
