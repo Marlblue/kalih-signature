@@ -11,9 +11,7 @@ export default function LegalClinicTeaser() {
           memotong sisi kiri-kanan, bukan bagian bawah jas. */}
       <div className="max-w-5xl mx-auto">
         <div className="bg-surface rounded-2xl sm:rounded-3xl overflow-hidden border border-primary/5 shadow-xl flex flex-col md:flex-row items-center">
-          {/* Foto khusus kartu ini sudah di-crop mengikuti desain (1328x1244),
-              beda dari foto di /hubungi/legal-clinic yang memakai versi utuh.
-              Di md ke atas tingginya mengikuti tinggi kartu (self-stretch), bukan
+          {/* Di md ke atas tinggi fotonya mengikuti tinggi kartu (self-stretch), bukan
               rasio filenya — kalau dikunci ke rasio, di layar md fotonya jadi
               lebih pendek daripada kolom teks dan muncul jalur kosong krem di
               atas-bawahnya. */}
