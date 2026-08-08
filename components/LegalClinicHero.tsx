@@ -2,7 +2,6 @@ import Image from "next/image";
 
 const HIGHLIGHTS = [
   { icon: "location_on", label: "Tegal" },
-  { icon: "schedule", label: "30 Menit" },
   { icon: "group", label: "Kuota Terbatas" },
 ];
 
@@ -11,8 +10,8 @@ export default function LegalClinicHero() {
     <section data-reveal className="px-gutter max-w-container-max mx-auto pt-24 sm:pt-32 pb-12 sm:pb-16">
       <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 border border-outline-variant shadow-2xl shadow-primary/5">
         <div className="text-center mb-10 sm:mb-14">
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary tracking-tight leading-tight">
-            Free Private Legal Consultation
+          <h1 className="font-display text-xl sm:text-4xl md:text-5xl font-bold text-primary tracking-tight leading-tight text-balance">
+            FREE PRIVATE LEGAL CONSULTATION BERSAMA YAYASAN INDONESIA SALAM JAYA
           </h1>
         </div>
 
@@ -38,7 +37,7 @@ export default function LegalClinicHero() {
 
           <div className="flex flex-col items-start text-left gap-6">
             <div>
-              <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary uppercase tracking-wide leading-tight mb-2">
+              <h2 className="font-display text-base sm:text-2xl md:text-3xl font-bold text-primary uppercase tracking-wide leading-tight mb-2">
                 Prof. Dr. Margono, S.H., M.H.
               </h2>
               <p className="text-secondary text-base sm:text-lg">Guru Besar Hukum</p>
@@ -46,16 +45,10 @@ export default function LegalClinicHero() {
 
             <div className="space-y-4 text-on-surface/80 leading-relaxed">
               <p>
-                Adalah seorang pakar hukum yang memiliki rekam jejak multidimensi mulai dari
-                akademisi, praktisi advokat, hingga pengadil di meja hijau.
+                Lebih dari 30 tahun berkiprah di dunia hukum sebagai akademisi, advokat, hakim, dan Guru Besar Hukum.
               </p>
               <p>
-                Dengan dedikasi lebih dari tiga dekade, beliau mengombinasikan kedalaman teori
-                hukum dengan ketajaman praktik di lapangan.
-              </p>
-              <p>
-                Konsultasikan permasalahan hukum Anda secara langsung dalam sesi privat selama 30
-                menit di Kalih Signature.
+                Kini hadir di Kalih Signature untuk memberikan konsultasi hukum secara privat kepada masyarakat dan pelaku usaha.
               </p>
             </div>
 

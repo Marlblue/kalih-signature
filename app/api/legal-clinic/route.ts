@@ -11,7 +11,10 @@ const RULES: FieldRules = {
   email: { maxLength: 80, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
   domicile: { required: true, minLength: 3, maxLength: 60 },
   category: { required: true, minLength: 3, maxLength: 60 },
-  message: { required: true, minLength: 20, maxLength: 1500 },
+  // Tanpa minLength: sebagian pendaftar memang bisa merangkum masalahnya dalam
+  // satu kalimat pendek, dan minimum 20 karakter sebelumnya menahan mereka di
+  // form. Harus tetap sinkron dengan textarea di LegalClinicForm.tsx.
+  message: { required: true, maxLength: 1500 },
   consent: { required: true, pattern: /^Ya$/ },
 };
 

@@ -36,34 +36,46 @@ export default function HubungiQuickActions() {
       <Link
         href="/hubungi/legal-clinic"
         style={{ animationDelay: "240ms" }}
-        className="rise-in group flex items-center gap-4 w-full bg-surface text-primary p-4 rounded-xl border border-outline-variant transition-all hover:bg-primary/5 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99]"
+        className="rise-in group flex items-start gap-3 sm:gap-4 sm:items-center w-full bg-surface text-primary p-4 rounded-xl border border-outline-variant transition-all hover:bg-primary/5 hover:border-primary/30 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99]"
       >
-        <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 overflow-hidden rounded-lg">
+        {/* 64px di mobile, bukan 80px: di layar sempit tiap piksel foto
+            langsung mengambil jatah kolom teks di sebelahnya, dan paragrafnya
+            yang butuh ruang untuk tidak pecah jadi banyak baris pendek. */}
+        <div className="relative w-16 h-16 sm:w-24 sm:h-24 shrink-0 overflow-hidden rounded-lg">
           <Image
             src="/legal-clinic/prof-margono-teaser.webp"
             alt="Prof. Dr. Margono, S.H., M.H."
             fill
-            // Kotaknya 80px (96px di >=sm), tapi scale di bawah membuatnya
-            // terpakai di 100px/120px. Angka di sini harus ukuran tampil
+            // Kotaknya 64px (96px di >=sm), tapi scale di bawah membuatnya
+            // terpakai di 80px/120px. Angka di sini harus ukuran tampil
             // sebenarnya — kalau ditulis sebesar kotaknya, browser mengambil
-            // bitmap 96px lalu merentangkannya jadi 120px dan hasilnya buram.
-            sizes="(min-width: 640px) 120px, 100px"
+            // bitmap kecil lalu merentangkannya dan hasilnya buram.
+            sizes="(min-width: 640px) 120px, 80px"
             // Framing disamakan dengan kartu Legal Clinic di home dan halamannya.
             className="object-cover object-top scale-[1.25]"
           />
         </div>
 
         <div className="min-w-0 flex-1">
-          <span className="block text-xs font-bold uppercase tracking-widest mb-1.5">
-            Form Kolaborasi Exclusive
+          <span className="block text-xs font-bold uppercase tracking-wide sm:tracking-widest mb-1 sm:mb-1.5">
+            {/* "Form" dibuang di mobile — labelnya sendiri sudah 2 baris tanpa
+                kata itu, dan "Kolaborasi Exclusive" saja cukup jelas di kolom sempit. */}
+            <span className="sm:hidden">Kolaborasi Exclusive</span>
+            <span className="hidden sm:inline">Form Kolaborasi Exclusive</span>
           </span>
-          <p className="text-sm text-secondary leading-snug">
-            Legal Clinic: konsultasi hukum privat GRATIS 30 menit bersama{" "}
-            <span className="font-bold text-primary">Prof. Dr. Margono, S.H., M.H.</span>
+          {/* Detail sekunder (kata "hukum", durasi, gelar lengkap) disembunyikan
+              di mobile supaya paragrafnya muat ~2 baris sejajar tinggi foto,
+              bukan melebar jauh ke bawah dan bikin kartunya terlihat berantakan. */}
+          <p className="text-xs sm:text-sm text-secondary leading-snug">
+            Legal Clinic: konsultasi <span className="hidden sm:inline">hukum </span>
+            privat GRATIS<span className="hidden sm:inline"> 30 menit</span> bersama{" "}
+            <span className="font-bold text-primary">
+              Prof. Dr. Margono<span className="hidden sm:inline">, S.H., M.H.</span>
+            </span>
           </p>
         </div>
 
-        <span className="material-symbols-outlined text-sm shrink-0 transition-transform group-hover:translate-x-1">
+        <span className="material-symbols-outlined text-sm shrink-0 self-center transition-transform group-hover:translate-x-1">
           arrow_forward_ios
         </span>
       </Link>

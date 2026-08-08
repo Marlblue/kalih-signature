@@ -21,6 +21,7 @@ const CATEGORIES = [
 const BEFORE_REGISTERING = [
   <>Sesi berdurasi maksimal 30 menit dan bersifat sepenuhnya privat.</>,
   <>Tim kami akan menghubungi via WhatsApp untuk konfirmasi jadwal.</>,
+  <>Tidak bisa diwakilkan.</>,
   <>
     Terdapat Commitment Fee sebesar <strong className="font-bold">Rp100.000</strong>{" "}
     yang dapat ditukar 100% untuk Food &amp; Beverage di Kalih Signature saat acara.
@@ -207,7 +208,6 @@ export default function LegalClinicForm() {
                   id="legal-message"
                   name="message"
                   rows={5}
-                  minLength={20}
                   maxLength={1500}
                   placeholder="Ceritakan secara singkat mengenai hal yang ingin didiskusikan..."
                   className={`${underlineInput} resize-none`}

@@ -1,21 +1,18 @@
 const TESTIMONIALS = [
   {
     quote:
-      "Suasana di Kalih Signature benar-benar premium dan menenangkan. Sangat cocok untuk meeting formal maupun sekadar mencari inspirasi kerja. Pelayanannya sangat profesional.",
-    name: "Andi Pratama",
-    role: "Business Consultant",
+      "Pertama kali ke sini bareng keluarga dan ternyata tempatnya nyaman banget. Area cukup luas, suasananya adem, jadi enak buat ngobrol dan makan santai. Pilihan makanannya juga banyak dan pelayanannya ramah. Cocok buat yang cari tempat makan dan kumpul keluarga di Tegal.",
+    name: "Rita & Keluarga",
   },
   {
     quote:
-      "Fasilitas meeting room-nya sangat lengkap dan modern. WiFi-nya stabil banget buat video conference. Tempat terbaik di Tegal untuk produktivitas tanpa gangguan.",
-    name: "Siti Aminah",
-    role: "Creative Director",
+      "Kemarin bikin acara meeting bulanan bareng teman-teman di Kalih Signature dan semuanya berjalan lancar. Meeting room-nya nyaman, makanannya enak, dan staff-nya juga support banget dari awal sampai acara selesai. Kebutuhan acara seperti mic, speaker, sampai proyektor juga dibantu disiapkan. Recommended kalau cari tempat meeting atau bikin acara di Tegal.",
+    name: "Alvin Sigit",
   },
   {
     quote:
-      "Kombinasi antara arsitektur yang indah dan kopi yang luar biasa. Kalih Signature bukan sekadar cafe, tapi sebuah pengalaman gaya hidup yang berkelas di Tegal.",
-    name: "Budi Santoso",
-    role: "Entrepreneur",
+      "Enak banget nongkrong sore-sore di rooftop-nya. Suasananya adem, sejuk, pemandangannya juga bagus. Jadi betah ngobrol lama di sini. Tempat duduknya nyaman, makanan dan minumannya enak. Salah satu tempat nongkrong di Tegal yang pengen banget didatengin lagi.",
+    name: "Rani",
   },
 ];
 
@@ -36,7 +33,7 @@ export default function Testimonials() {
           {TESTIMONIALS.map((testimonial) => (
             <div
               key={testimonial.name}
-              className="p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl transition-all duration-300"
+              className="p-8 bg-white rounded-2xl border border-black/5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col"
             >
               <div className="flex text-yellow-400 mb-6">
                 {Array.from({ length: 5 }).map((_, index) => (
@@ -48,13 +45,12 @@ export default function Testimonials() {
               <p className="text-on-surface italic mb-8 leading-relaxed">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 mt-auto">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                   <span className="material-symbols-outlined text-primary">person</span>
                 </div>
                 <div>
                   <p className="font-bold text-primary text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-secondary">{testimonial.role}</p>
                 </div>
               </div>
             </div>
