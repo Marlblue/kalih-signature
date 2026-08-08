@@ -137,6 +137,32 @@ html.icons-ready .material-symbols-outlined {
   100% { transform: translateX(100%) rotate(45deg); }
 }
 
+/* Muncul-naik untuk daftar tautan di /hubungi, dipakai bersama animation-delay
+   inline supaya itemnya tampil berurutan. Sengaja memakai @keyframes, bukan
+   [data-reveal]: animasi ini menganimasikan `transform`, sementara utilitas
+   hover Tailwind v4 memakai properti `translate` yang terpisah — jadi efek
+   angkat saat hover tidak saling menimpa dengan animasi masuknya. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: rise-in 600ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in {
+    animation: none;
+  }
+}
+
 /* Hides scrollbar while keeping horizontal scroll functional (category tabs, etc.) */
 .no-scrollbar {
   -ms-overflow-style: none;
