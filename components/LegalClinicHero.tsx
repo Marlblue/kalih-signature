@@ -1,0 +1,71 @@
+import Image from "next/image";
+
+const HIGHLIGHTS = [
+  { icon: "location_on", label: "Tegal" },
+  { icon: "schedule", label: "30 Menit" },
+  { icon: "group", label: "Kuota Terbatas" },
+];
+
+export default function LegalClinicHero() {
+  return (
+    <section data-reveal className="px-gutter max-w-container-max mx-auto pt-24 sm:pt-32 pb-12 sm:pb-16">
+      <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-16 border border-outline-variant shadow-2xl shadow-primary/5">
+        <div className="text-center mb-10 sm:mb-14">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary tracking-tight leading-tight">
+            Free Private Legal Consultation
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
+          <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/10 shadow-lg">
+            <Image
+              src="/legal-clinic/prof-margono.webp"
+              alt="Prof. Dr. Margono, S.H., M.H."
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover object-top"
+            />
+          </div>
+
+          <div className="flex flex-col items-start text-left gap-6">
+            <div>
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-primary uppercase tracking-wide leading-tight mb-2">
+                Prof. Dr. Margono, S.H., M.H.
+              </h2>
+              <p className="text-secondary text-base sm:text-lg">Guru Besar Hukum</p>
+            </div>
+
+            <div className="space-y-4 text-on-surface/80 leading-relaxed">
+              <p>
+                Adalah seorang pakar hukum yang memiliki rekam jejak multidimensi mulai dari
+                akademisi, praktisi advokat, hingga pengadil di meja hijau.
+              </p>
+              <p>
+                Dengan dedikasi lebih dari tiga dekade, beliau mengombinasikan kedalaman teori
+                hukum dengan ketajaman praktik di lapangan.
+              </p>
+              <p>
+                Konsultasikan permasalahan hukum Anda secara langsung dalam sesi privat selama 30
+                menit di Kalih Signature.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-x-6 gap-y-3 py-5 border-y border-outline-variant w-full">
+              {HIGHLIGHTS.map((highlight) => (
+                <div key={highlight.label} className="flex items-center gap-2 text-secondary">
+                  <span className="material-symbols-outlined text-primary text-lg">
+                    {highlight.icon}
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-widest">
+                    {highlight.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

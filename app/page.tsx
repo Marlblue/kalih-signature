@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
+import LegalClinicTeaser from "@/components/LegalClinicTeaser";
 import IntentGrid from "@/components/IntentGrid";
 
 const Facilities = dynamic(() => import("@/components/Facilities"));
@@ -20,6 +21,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <LegalClinicTeaser />
       <IntentGrid />
       <Facilities />
       <FamilyFocus />

@@ -21,7 +21,19 @@ export default function HubungiQuickActions() {
       >
         <div className="flex items-center gap-4">
           <span className="material-symbols-outlined">handshake</span>
-          <span className="text-xs font-bold uppercase tracking-widest">Form Kolaborasi</span>
+          <span className="text-xs font-bold uppercase tracking-widest">Form Kolaborasi KOL</span>
+        </div>
+        <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
+      </a>
+      <a
+        href="/hubungi/legal-clinic"
+        className="flex items-center justify-between w-full bg-surface text-primary p-5 rounded-xl border border-outline-variant hover:bg-primary/5 transition-colors"
+      >
+        <div className="flex items-center gap-4">
+          <span className="material-symbols-outlined">gavel</span>
+          <span className="text-xs font-bold uppercase tracking-widest">
+            Form Kolaborasi Exclusive
+          </span>
         </div>
         <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
       </a>
