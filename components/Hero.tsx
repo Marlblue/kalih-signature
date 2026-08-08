@@ -103,7 +103,12 @@ export default function Hero() {
             Menu Kalih
           </a>
         </div>
-        <div className="flex flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-1.5 sm:gap-4 mb-8 overflow-x-auto no-scrollbar min-w-0">
+        {/* w-fit + mx-auto, bukan justify-center: barisnya menyusut selebar isinya
+            lalu ditengahkan selama muat, tapi begitu di layar sempit isinya
+            melebihi lebar layar, max-w-full membuatnya kembali penuh dan bisa
+            di-scroll dari kiri. justify-center pada kontainer overflow akan
+            memotong badge pertama dan membuatnya tak terjangkau. */}
+        <div className="flex w-fit max-w-full mx-auto flex-nowrap sm:flex-wrap justify-start sm:justify-center gap-1.5 sm:gap-4 mb-8 overflow-x-auto no-scrollbar min-w-0">
           <div className="flex shrink-0 items-center gap-1 sm:gap-2 bg-white/10 backdrop-blur-md px-2 py-1 sm:px-4 sm:py-2 rounded-full border border-white/20">
             <span className="material-symbols-outlined text-yellow-400 fill-1 text-xs sm:text-xl">star</span>
             <span className="text-[10px] sm:text-sm font-medium whitespace-nowrap">

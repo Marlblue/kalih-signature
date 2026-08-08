@@ -17,14 +17,22 @@ export default function LegalClinicHero() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center">
-          <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/10 shadow-lg">
+          {/* Grid-nya items-center, jadi foto ini ikut turun mengikuti tinggi
+              kolom teks di sebelahnya. self-start menyejajarkannya ke atas dan
+              margin negatifnya mengangkat sedikit lagi supaya tetap terangkat
+              di lebar layar tempat fotonya justru lebih tinggi dari teks. */}
+          <div className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/10 shadow-lg md:self-start md:-mt-4">
             <Image
-              src="/legal-clinic/prof-margono.webp"
+              src="/legal-clinic/prof-margono-teaser.webp"
               alt="Prof. Dr. Margono, S.H., M.H."
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-top"
+              // Kolomnya separuh container yang dibatasi 1280px, jadi lebarnya
+              // tidak pernah lebih dari ~520px; 660px menutupi itu plus zoom.
+              sizes="(max-width: 768px) 100vw, 660px"
+              // Disamakan dengan kartu di home: file dan zoom yang sama, supaya
+              // wajahnya sama besar dan bahunya sama-sama merapat ke tepi.
+              className="object-cover scale-[1.25]"
             />
           </div>
 

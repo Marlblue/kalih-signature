@@ -3,8 +3,10 @@
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
+import HoneypotField from "@/components/ui/HoneypotField";
 
 const SUCCESS_PATH = "/hubungi/legal-clinic/terima-kasih";
+const SUBMIT_ENDPOINT = "/api/legal-clinic";
 
 const CATEGORIES = [
   "Hukum Keluarga",
@@ -25,23 +27,19 @@ const BEFORE_REGISTERING = [
   </>,
 ];
 
-const SCRIPT_URL = process.env.NEXT_PUBLIC_LEGAL_CLINIC_SCRIPT_URL;
+const FALLBACK_ERROR = "Gagal mengirim pendaftaran. Silakan coba lagi.";
 
 export default function LegalClinicForm() {
   const router = useRouter();
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState(FALLBACK_ERROR);
   const [phone, setPhone] = useState("");
   const [category, setCategory] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (!SCRIPT_URL) {
-      setStatus("error");
-      return;
-    }
-
     setStatus("loading");
+
     const formData = new FormData(event.currentTarget);
     formData.set("phone", `+62${phone}`);
     if (category === "Lainnya") {
@@ -50,11 +48,25 @@ export default function LegalClinicForm() {
     }
 
     try {
-      await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData });
+      // Dikirim ke route handler sendiri, bukan langsung ke Apps Script: dari
+      // server statusnya bisa benar-benar dibaca, jadi pendaftar hanya diarahkan
+      // ke halaman terima kasih kalau datanya memang sudah tersimpan.
+      const response = await fetch(SUBMIT_ENDPOINT, { method: "POST", body: formData });
+      const result = (await response.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!response.ok || !result?.ok) {
+        setErrorMessage(result?.error ?? FALLBACK_ERROR);
+        setStatus("error");
+        return;
+      }
+
       // Status sengaja dibiarkan "loading" sampai halaman berpindah, supaya
       // tombolnya tetap nonaktif dan form tidak bisa terkirim dua kali.
       router.push(SUCCESS_PATH);
     } catch {
+      setErrorMessage(FALLBACK_ERROR);
       setStatus("error");
     }
   };
@@ -66,6 +78,7 @@ export default function LegalClinicForm() {
   return (
     <section id="daftar" data-reveal className="px-gutter max-w-container-max mx-auto py-12 sm:py-16">
       <form onSubmit={handleSubmit}>
+        <HoneypotField />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-8 bg-white p-6 sm:p-10 rounded-2xl border border-outline-variant shadow-2xl shadow-primary/5">
             <h2 className="font-display text-2xl sm:text-3xl font-bold text-primary mb-8 pb-5 border-b border-outline-variant">
@@ -235,8 +248,8 @@ export default function LegalClinicForm() {
             </div>
 
             {status === "error" && (
-              <p className="text-sm text-red-600">
-                Gagal mengirim pendaftaran. Silakan coba lagi atau hubungi kami langsung via{" "}
+              <p role="alert" className="text-sm text-red-600">
+                {errorMessage} Atau hubungi kami langsung via{" "}
                 <a
                   href={WHATSAPP_RESERVATION_URL}
                   target="_blank"

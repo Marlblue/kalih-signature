@@ -2,26 +2,24 @@
 
 import { useState, type FormEvent } from "react";
 import { WHATSAPP_RESERVATION_URL } from "@/lib/constants";
+import HoneypotField from "@/components/ui/HoneypotField";
 
 const PLATFORMS = ["Instagram", "TikTok", "YouTube", "X / Twitter", "Other"];
 
-const SCRIPT_URL = process.env.NEXT_PUBLIC_COLLAB_SCRIPT_URL;
+const SUBMIT_ENDPOINT = "/api/kolaborasi";
+const FALLBACK_ERROR = "Gagal mengirim form. Silakan coba lagi.";
 
 export default function HubungiCollaborationForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "submitted" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState(FALLBACK_ERROR);
   const [phone, setPhone] = useState("");
   const [username, setUsername] = useState("");
   const [platform, setPlatform] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (!SCRIPT_URL) {
-      setStatus("error");
-      return;
-    }
-
     setStatus("loading");
+
     const formData = new FormData(event.currentTarget);
     formData.set("phone", `+62${phone}`);
     formData.set("username", `@${username}`);
@@ -31,9 +29,23 @@ export default function HubungiCollaborationForm() {
     }
 
     try {
-      await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: formData });
+      // Lewat route handler sendiri, bukan langsung ke Apps Script: dari server
+      // status responsnya bisa dibaca, jadi layar "Terima kasih" hanya muncul
+      // kalau pengajuannya memang tersimpan.
+      const response = await fetch(SUBMIT_ENDPOINT, { method: "POST", body: formData });
+      const result = (await response.json().catch(() => null)) as
+        | { ok?: boolean; error?: string }
+        | null;
+
+      if (!response.ok || !result?.ok) {
+        setErrorMessage(result?.error ?? FALLBACK_ERROR);
+        setStatus("error");
+        return;
+      }
+
       setStatus("submitted");
     } catch {
+      setErrorMessage(FALLBACK_ERROR);
       setStatus("error");
     }
   };
@@ -66,6 +78,7 @@ export default function HubungiCollaborationForm() {
           </div>
         ) : (
           <form className="space-y-8" onSubmit={handleSubmit}>
+            <HoneypotField />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="hubungi-collab-name" className={underlineLabel}>
@@ -221,8 +234,8 @@ export default function HubungiCollaborationForm() {
             </div>
 
             {status === "error" && (
-              <p className="text-sm text-red-600">
-                Gagal mengirim form. Silakan coba lagi atau hubungi kami langsung via{" "}
+              <p role="alert" className="text-sm text-red-600">
+                {errorMessage} Atau hubungi kami langsung via{" "}
                 <a
                   href={WHATSAPP_RESERVATION_URL}
                   target="_blank"
